@@ -31,7 +31,7 @@
                                         <rect key="frame" x="464" y="0.0" width="36" height="50"/>
                                         <state key="normal" title="Button" image="up_half.png"/>
                                         <connections>
-                                            <action selector="View1Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHO-bh-Oqm"/>
+                                            <action selector="View2Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cyR-Bd-kC1"/>
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="down_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="846-1D-Xc6">

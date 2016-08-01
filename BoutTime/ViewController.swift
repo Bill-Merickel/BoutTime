@@ -17,11 +17,13 @@ class ViewController: UIViewController {
     let roundsPerGame = 6
     var roundsPlayed = 0
     var roundsCorrect = 0
-    var setOfInventions: [Invention] = []
-    var randomInvention1: Invention = Invention(event: "", year: 0, url: "")
-    var randomInvention2: Invention = Invention(event: "", year: 0, url: "")
-    var randomInvention3: Invention = Invention(event: "", year: 0, url: "")
-    var randomInvention4: Invention = Invention(event: "", year: 0, url: "")
+    var setOfInventions: [InventionSet] = []
+    var copyOfListOfInventions: [Invention] = []
+    var randomInvention1: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 1)
+    var randomInvention2: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 2)
+    var randomInvention3: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 3)
+    var randomInvention4: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 4)
+    
     // Timer Mechanics
     var timer = NSTimer()
     var counter: NSTimeInterval = 45
@@ -45,18 +47,18 @@ class ViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         do {
-            let dictionary = try PlistConverter.dictionaryFromFile("Inventions", ofType: "plist")
-            let listOfInventions = try PlistUnarchiver.createListFromDictionary(dictionary)
-            self.listOfInventions = listOfInventions
+            let array = try PlistConverter.arrayFromFile("Inventions", ofType: "plist")
+            self.listOfInventions = PlistUnarchiver.createListFromArray(array)
         } catch let error {
             fatalError("\(error)")
         }
         super.init(coder: aDecoder)
         
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCorrectSound()
+        loadIncorrectSound()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,8 +76,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func View1Down(sender: UIButton) {
-    }
-    @IBAction func View1Up(sender: UIButton) {
+        InventionListed1.text = InventionListed2.text
+        InventionListed2.text = InventionListed1.text
     }
     @IBAction func View2Down(sender: UIButton) {
     }
@@ -96,16 +98,16 @@ class ViewController: UIViewController {
         var randomIndex3 = 0
         var randomIndex4 = 0
         randomIndex1 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention1 = listOfInventions[randomIndex1]
+        randomInvention1.invention = listOfInventions[randomIndex1]
         listOfInventions.removeAtIndex(randomIndex1)
         randomIndex2 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention2 = listOfInventions[randomIndex2]
+        randomInvention2.invention = listOfInventions[randomIndex2]
         listOfInventions.removeAtIndex(randomIndex2)
         randomIndex3 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention3 = listOfInventions[randomIndex3]
+        randomInvention3.invention = listOfInventions[randomIndex3]
         listOfInventions.removeAtIndex(randomIndex3)
         randomIndex4 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention4 = listOfInventions[randomIndex4]
+        randomInvention4.invention = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
@@ -119,10 +121,10 @@ class ViewController: UIViewController {
         
         TimerLabel.text = "0:\(timeLeft)"
         
-        InventionListed1.text = randomInvention1.event
-        InventionListed2.text = randomInvention2.event
-        InventionListed3.text = randomInvention3.event
-        InventionListed4.text = randomInvention4.event
+        InventionListed1.text = randomInvention1.invention.event
+        InventionListed2.text = randomInvention2.invention.event
+        InventionListed3.text = randomInvention3.invention.event
+        InventionListed4.text = randomInvention4.invention.event
         
     }
     

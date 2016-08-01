@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-
 <plist version="1.0">
     
     <array>
         
-        <dict>
+            <dict>
             
             <key>event</key>
             
@@ -14,7 +12,7 @@
             
             <key>year</key>
             
-            <string>-2400<string>
+            <string>-2400</string>
                 
                 <key>url</key>
                 
@@ -30,7 +28,7 @@
                 
                 <key>year</key>
                 
-                <string>-500<string>
+                <string>-500</string>
                     
                     <key>url</key>
                     
@@ -46,7 +44,7 @@
                     
                     <key>year</key>
                     
-                    <string>-300<string>
+                    <string>-300</string>
                         
                         <key>url</key>
                         

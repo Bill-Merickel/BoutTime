@@ -31,32 +31,38 @@ enum InventionListError: ErrorType {
 // Helper Classes
 
 class PlistConverter {
-    class func dictionaryFromFile(resource: String, ofType type: String) throws -> [[String : Any]] {
+    class func arrayFromFile(resource: String, ofType type: String) throws -> [[String : String]] {
         guard let path = NSBundle.mainBundle().pathForResource(resource, ofType: type) else {
             throw InventionListError.InvalidResource
         }
         
-        guard let dictionary = NSDictionary(contentsOfFile: path), let castDictionary = dictionary as? [[String : Any]] else {
+        guard let array = NSDictionary(contentsOfFile: path), let castArray = array as? [[String : String]] else {
             throw InventionListError.ConversionError
         }
         
-        return castDictionary
+        return castArray
     }
 }
 
 
 
 class PlistUnarchiver {
-    class func createListFromDictionary(dictionary: [[String: Any]]) -> [Invention] {
+    class func createListFromArray(array: [[String: String]]) -> [Invention] {
         var listOfInventions: [Invention] = []
         
-        for invention in dictionary {
-            if let event = invention["event"] as? String, let year = invention["year"] as? Int, let url = invention["url"] as? String {
-                let invention = Invention(event: event, year: year, url: url)
+        for invention in array {
+            if let event = invention["event"], let year = invention["year"], let yearAsNumber = Int(year), let url = invention["url"] {
+                let invention = Invention(event: event, year: yearAsNumber, url: url)
                 listOfInventions.append(invention)
             }
         }
         
         return listOfInventions
     }
+}
+
+struct InventionSet {
+    var invention: Invention
+    var order: Int
+    var position: Int
 }
