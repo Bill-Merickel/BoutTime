@@ -12,6 +12,11 @@
 		B3384C561D4EE38500C50828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3384C541D4EE38500C50828 /* Main.storyboard */; };
 		B3384C581D4EE38500C50828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3384C571D4EE38500C50828 /* Assets.xcassets */; };
 		B3384C5B1D4EE38500C50828 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3384C591D4EE38500C50828 /* LaunchScreen.storyboard */; };
+		B3384C631D4EE40500C50828 /* Inventions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3384C621D4EE40500C50828 /* Inventions.plist */; };
+		B3384C651D4EE44000C50828 /* InventionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3384C641D4EE44000C50828 /* InventionModel.swift */; };
+		B3384C671D4EE49300C50828 /* BoutTimeAssets in Resources */ = {isa = PBXBuildFile; fileRef = B3384C661D4EE49300C50828 /* BoutTimeAssets */; };
+		B3F342691D4EFDD40038498F /* CorrectDing.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3F342681D4EFDD40038498F /* CorrectDing.wav */; };
+		B3F3426B1D4EFDDE0038498F /* IncorrectBuzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		B3384C571D4EE38500C50828 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3384C5A1D4EE38500C50828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3384C5C1D4EE38500C50828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3384C621D4EE40500C50828 /* Inventions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Inventions.plist; sourceTree = "<group>"; };
+		B3384C641D4EE44000C50828 /* InventionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventionModel.swift; sourceTree = "<group>"; };
+		B3384C661D4EE49300C50828 /* BoutTimeAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BoutTimeAssets; path = ../../../../../../../Downloads/BoutTimeAssetsAndMockups/BoutTimeAssets; sourceTree = "<group>"; };
+		B3F342681D4EFDD40038498F /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = ../../../../CorrectDing.wav; sourceTree = "<group>"; };
+		B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncorrectBuzz.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +66,15 @@
 			children = (
 				B3384C501D4EE38500C50828 /* AppDelegate.swift */,
 				B3384C521D4EE38500C50828 /* ViewController.swift */,
+				B3384C641D4EE44000C50828 /* InventionModel.swift */,
 				B3384C541D4EE38500C50828 /* Main.storyboard */,
 				B3384C571D4EE38500C50828 /* Assets.xcassets */,
+				B3384C661D4EE49300C50828 /* BoutTimeAssets */,
 				B3384C591D4EE38500C50828 /* LaunchScreen.storyboard */,
+				B3F342681D4EFDD40038498F /* CorrectDing.wav */,
+				B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */,
 				B3384C5C1D4EE38500C50828 /* Info.plist */,
+				B3384C621D4EE40500C50828 /* Inventions.plist */,
 			);
 			path = BoutTime;
 			sourceTree = "<group>";
@@ -123,8 +138,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3384C5B1D4EE38500C50828 /* LaunchScreen.storyboard in Resources */,
+				B3F3426B1D4EFDDE0038498F /* IncorrectBuzz.wav in Resources */,
+				B3F342691D4EFDD40038498F /* CorrectDing.wav in Resources */,
 				B3384C581D4EE38500C50828 /* Assets.xcassets in Resources */,
+				B3384C671D4EE49300C50828 /* BoutTimeAssets in Resources */,
 				B3384C561D4EE38500C50828 /* Main.storyboard in Resources */,
+				B3384C631D4EE40500C50828 /* Inventions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3384C651D4EE44000C50828 /* InventionModel.swift in Sources */,
 				B3384C531D4EE38500C50828 /* ViewController.swift in Sources */,
 				B3384C511D4EE38500C50828 /* AppDelegate.swift in Sources */,
 			);
@@ -286,6 +306,7 @@
 				B3384C611D4EE38500C50828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
