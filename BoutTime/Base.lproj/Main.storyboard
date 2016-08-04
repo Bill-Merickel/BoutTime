@@ -31,36 +31,24 @@
                                         <rect key="frame" x="464" y="0.0" width="36" height="50"/>
                                         <state key="normal" title="Button" image="up_half.png"/>
                                         <connections>
-                                            <action selector="View2Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cyR-Bd-kC1"/>
+                                            <action selector="View2Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1JA-N5-NpI"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="down_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="846-1D-Xc6">
-                                        <rect key="frame" x="464" y="50" width="36" height="50"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-pk-EkI">
-                                        <rect key="frame" x="464" y="0.0" width="36" height="50"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first star tracking computer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-nc-ZrG">
                                         <rect key="frame" x="22" y="8" width="248" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" image="down_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="846-1D-Xc6">
+                                        <rect key="frame" x="464" y="50" width="36" height="50"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-pk-EkI">
+                                        <rect key="frame" x="464" y="0.0" width="36" height="50"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-so-gwp">
-                                <rect key="frame" x="247" y="468" width="107" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake to Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
-                                <rect key="frame" x="186" y="523" width="229" height="67"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PP6-62-Fto">
                                 <rect key="frame" x="50" y="360" width="500" height="100"/>
                                 <subviews>
@@ -71,15 +59,53 @@
                                             <action selector="View4Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nah-mC-F9O"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_full_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="DYH-wn-K6X">
-                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first star tracking computer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axf-kt-dhJ">
                                         <rect key="frame" x="24" y="8" width="248" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_full_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="DYH-wn-K6X">
+                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4x-2S-wOD">
+                                <rect key="frame" x="170" y="468" width="260" height="70"/>
+                                <state key="normal" title="Button" image="next_round_fail.png"/>
+                                <connections>
+                                    <action selector="FailureNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVo-tw-HMh"/>
+                                    <action selector="FailureNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GBS-qR-S7v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWu-ac-sgy">
+                                <rect key="frame" x="170" y="468" width="260" height="70"/>
+                                <state key="normal" title="Button" image="next_round_success.png"/>
+                                <connections>
+                                    <action selector="SuccessNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfC-xr-lqJ"/>
+                                    <action selector="SuccessNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STV-v6-21Z"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1e5-9C-NGx">
+                                <rect key="frame" x="50" y="30" width="500" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-cb-y8Q">
+                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
+                                        <state key="normal" title="Button" image="down_full.png"/>
+                                        <connections>
+                                            <action selector="View1Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSo-HA-CaO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first star tracking computer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UG-pV-1Sc">
+                                        <rect key="frame" x="22" y="8" width="248" height="84"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="down_full_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="XH1-28-cDN">
+                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -100,11 +126,8 @@
                                             <action selector="View3Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ad-Pz-HpO"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="down_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="0i6-Pe-fkl">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" image="down_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="0i6-Pe-fkl">
                                         <rect key="frame" x="464" y="50" width="36" height="50"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-9Z-3CX">
-                                        <rect key="frame" x="464" y="0.0" width="36" height="50"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first star tracking computer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRD-Kt-MT8">
                                         <rect key="frame" x="22" y="8" width="248" height="84"/>
@@ -112,69 +135,50 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4x-2S-wOD">
-                                <rect key="frame" x="170" y="468" width="260" height="70"/>
-                                <state key="normal" title="Button" image="next_round_fail.png"/>
-                                <connections>
-                                    <action selector="FailureNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVo-tw-HMh"/>
-                                    <action selector="FailureNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GBS-qR-S7v"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-Ga-p8w">
-                                <rect key="frame" x="50" y="30" width="500" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-iE-XbO">
-                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
-                                        <state key="normal" title="Button" image="down_full.png"/>
-                                        <connections>
-                                            <action selector="View1Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JqT-xN-l55"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first star tracking computer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cX-6P-SfD">
-                                        <rect key="frame" x="24" y="8" width="248" height="84"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="down_full_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdd-A7-Q6r">
-                                        <rect key="frame" x="464" y="0.0" width="36" height="100"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="up_half_selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-9Z-3CX">
+                                        <rect key="frame" x="464" y="0.0" width="36" height="50"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWu-ac-sgy">
-                                <rect key="frame" x="170" y="468" width="260" height="70"/>
-                                <state key="normal" title="Button" image="next_round_success.png"/>
-                                <connections>
-                                    <action selector="SuccessNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfC-xr-lqJ"/>
-                                    <action selector="SuccessNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STV-v6-21Z"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake to Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
+                                <rect key="frame" x="186" y="523" width="229" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-so-gwp">
+                                <rect key="frame" x="247" y="478" width="107" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="InformationLabel" destination="Dma-0f-Rl5" id="qoF-xz-abl"/>
-                        <outlet property="InventionListed1" destination="6cX-6P-SfD" id="Oan-Eo-NAt"/>
+                        <outlet property="InventionListed1" destination="3UG-pV-1Sc" id="7bT-Md-w9b"/>
                         <outlet property="InventionListed2" destination="wdY-nc-ZrG" id="CGm-hX-YN3"/>
                         <outlet property="InventionListed3" destination="bRD-Kt-MT8" id="72A-Ka-Xzw"/>
                         <outlet property="InventionListed4" destination="axf-kt-dhJ" id="UnK-i8-p0Z"/>
                         <outlet property="RoundFailure" destination="v4x-2S-wOD" id="V0q-3b-iBL"/>
                         <outlet property="RoundSuccess" destination="oWu-ac-sgy" id="Q9n-ji-er9"/>
                         <outlet property="TimerLabel" destination="dhn-so-gwp" id="Yn0-LF-FYZ"/>
-                        <outlet property="View1" destination="Txp-Ga-p8w" id="ERg-KK-beI"/>
-                        <outlet property="View1Down" destination="VL0-iE-XbO" id="Prl-TH-65f"/>
-                        <outlet property="View2" destination="LAC-AE-OA5" id="cZC-iz-UoV"/>
-                        <outlet property="View3" destination="P4g-7D-x4m" id="btW-EZ-DeF"/>
-                        <outlet property="View4" destination="PP6-62-Fto" id="AOh-gy-ANf"/>
+                        <outlet property="View1" destination="1e5-9C-NGx" id="srJ-Ix-iCX"/>
+                        <outlet property="View2" destination="LAC-AE-OA5" id="xKD-58-3nP"/>
+                        <outlet property="View2DownSelected" destination="846-1D-Xc6" id="1HT-Wx-AaS"/>
+                        <outlet property="View2UpSelected" destination="KGk-pk-EkI" id="c1Q-ob-a9f"/>
+                        <outlet property="View3" destination="P4g-7D-x4m" id="gL5-Gy-dkc"/>
+                        <outlet property="View3DownSelected" destination="0i6-Pe-fkl" id="BmF-m0-jn1"/>
+                        <outlet property="View3UpSelected" destination="NN4-9Z-3CX" id="BlE-1f-cK3"/>
+                        <outlet property="View4" destination="PP6-62-Fto" id="Ymi-0s-l6h"/>
+                        <outlet property="View4UpSelected" destination="DYH-wn-K6X" id="4uK-Lb-Q3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123" y="578"/>
+            <point key="canvasLocation" x="834" y="596"/>
         </scene>
     </scenes>
     <resources>

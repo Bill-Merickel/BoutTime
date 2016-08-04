@@ -36,7 +36,7 @@ class PlistConverter {
             throw InventionListError.InvalidResource
         }
         
-        guard let array = NSDictionary(contentsOfFile: path), let castArray = array as? [[String : String]] else {
+        guard let array = NSArray(contentsOfFile: path), let castArray = array as? [[String : String]] else {
             throw InventionListError.ConversionError
         }
         

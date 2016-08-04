@@ -35,12 +35,25 @@ class ViewController: UIViewController {
     var incorrectSound: SystemSoundID = 1
     
     // Connections to View
+    
+    @IBOutlet weak var View1: UIView!
+    @IBOutlet weak var View2: UIView!
+    @IBOutlet weak var View3: UIView!
+    @IBOutlet weak var View4: UIView!
+    
     @IBOutlet weak var InventionListed1: UILabel!
     @IBOutlet weak var InventionListed2: UILabel!
     @IBOutlet weak var InventionListed3: UILabel!
     @IBOutlet weak var InventionListed4: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var InformationLabel: UILabel!
+    
+    @IBOutlet weak var View1DownSelected: UIImageView!
+    @IBOutlet weak var View2UpSelected: UIImageView!
+    @IBOutlet weak var View2DownSelected: UIImageView!
+    @IBOutlet weak var View3UpSelected: UIImageView!
+    @IBOutlet weak var View3DownSelected: UIImageView!
+    @IBOutlet weak var View4UpSelected: UIImageView!
     
     @IBOutlet weak var RoundSuccess: UIButton!
     @IBOutlet weak var RoundFailure: UIButton!
@@ -59,6 +72,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadCorrectSound()
         loadIncorrectSound()
+        setupAppUI()
+        getListOfInventions()
+        displaySetOfInventions()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,10 +90,10 @@ class ViewController: UIViewController {
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
     }
-    
+
     @IBAction func View1Down(sender: UIButton) {
-        InventionListed1.text = InventionListed2.text
-        InventionListed2.text = InventionListed1.text
+    }
+    @IBAction func View2Up(sender: UIButton) {
     }
     @IBAction func View2Down(sender: UIButton) {
     }
@@ -90,6 +106,15 @@ class ViewController: UIViewController {
     @IBAction func SuccessNextRound() {
     }
     @IBAction func FailureNextRound() {
+    }
+    
+    func setupAppUI() {
+        hideEndButtons()
+        
+        View1.layer.cornerRadius = 5
+        View2.layer.cornerRadius = 5
+        View3.layer.cornerRadius = 5
+        View4.layer.cornerRadius = 5
     }
     
     func getListOfInventions() {
@@ -132,6 +157,7 @@ class ViewController: UIViewController {
         if timerRunning == false {
             counter = 45
             timeLeft = 45
+            timerRunning = true
             timer = NSTimer.init(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
     }
