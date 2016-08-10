@@ -17,12 +17,16 @@ class ViewController: UIViewController {
     let roundsPerGame = 6
     var roundsPlayed = 0
     var roundsCorrect = 0
-    var setOfInventions: [InventionSet] = []
+    var setOfInventions: [Invention] = []
     var copyOfListOfInventions: [Invention] = []
-    var randomInvention1: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 1)
-    var randomInvention2: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 2)
-    var randomInvention3: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 3)
-    var randomInvention4: InventionSet = InventionSet(invention: Invention(event: "", year: 0, url: ""), order: 0, position: 4)
+    var randomInvention1: Invention = Invention(event: "", year: 0, url: "")
+    var randomInvention2: Invention = Invention(event: "", year: 0, url: "")
+    var randomInvention3: Invention = Invention(event: "", year: 0, url: "")
+    var randomInvention4: Invention = Invention(event: "", year: 0, url: "")
+    var answer1: String = ""
+    var answer2: String = ""
+    var answer3: String = ""
+    var answer4: String = ""
     
     // Timer Mechanics
     var timer = NSTimer()
@@ -40,20 +44,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var View2: UIView!
     @IBOutlet weak var View3: UIView!
     @IBOutlet weak var View4: UIView!
-    
-    @IBOutlet weak var InventionListed1: UILabel!
-    @IBOutlet weak var InventionListed2: UILabel!
-    @IBOutlet weak var InventionListed3: UILabel!
-    @IBOutlet weak var InventionListed4: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
-    @IBOutlet weak var InformationLabel: UILabel!
-    
+    @IBOutlet weak var InventionListed1: UIButton!
+    @IBOutlet weak var InventionListed2: UIButton!
+    @IBOutlet weak var InventionListed3: UIButton!
+    @IBOutlet weak var InventionListed4: UIButton!
     @IBOutlet weak var View1DownSelected: UIImageView!
     @IBOutlet weak var View2UpSelected: UIImageView!
     @IBOutlet weak var View2DownSelected: UIImageView!
     @IBOutlet weak var View3UpSelected: UIImageView!
     @IBOutlet weak var View3DownSelected: UIImageView!
     @IBOutlet weak var View4UpSelected: UIImageView!
+    @IBOutlet weak var InformationLabel: UILabel!
     
     @IBOutlet weak var RoundSuccess: UIButton!
     @IBOutlet weak var RoundFailure: UIButton!
@@ -92,20 +94,31 @@ class ViewController: UIViewController {
     }
 
     @IBAction func View1Down(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed1, secondPlace: InventionListed2)
     }
     @IBAction func View2Up(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed2, secondPlace: InventionListed1)
     }
     @IBAction func View2Down(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed2, secondPlace: InventionListed3)
     }
     @IBAction func View3Up(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed3, secondPlace: InventionListed2)
     }
     @IBAction func View3Down(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed3, secondPlace: InventionListed4)
     }
     @IBAction func View4Up(sender: UIButton) {
+        swapInventions(firstPlace: InventionListed4, secondPlace: InventionListed3)
     }
+    
     @IBAction func SuccessNextRound() {
+        getListOfInventions()
+        displaySetOfInventions()
     }
     @IBAction func FailureNextRound() {
+        getListOfInventions()
+        displaySetOfInventions()
     }
     
     func setupAppUI() {
@@ -123,34 +136,72 @@ class ViewController: UIViewController {
         var randomIndex3 = 0
         var randomIndex4 = 0
         randomIndex1 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention1.invention = listOfInventions[randomIndex1]
+        randomInvention1 = listOfInventions[randomIndex1]
         listOfInventions.removeAtIndex(randomIndex1)
         randomIndex2 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention2.invention = listOfInventions[randomIndex2]
+        randomInvention2 = listOfInventions[randomIndex2]
         listOfInventions.removeAtIndex(randomIndex2)
         randomIndex3 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention3.invention = listOfInventions[randomIndex3]
+        randomInvention3 = listOfInventions[randomIndex3]
         listOfInventions.removeAtIndex(randomIndex3)
         randomIndex4 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention4.invention = listOfInventions[randomIndex4]
+        randomInvention4 = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
+        setOfInventions.sort({$0.year < $1.year})
+        
+        answer1 = setOfInventions[0].event
+        answer2 = setOfInventions[1].event
+        answer3 = setOfInventions[2].event
+        answer4 = setOfInventions[3].event
     }
     
     func displaySetOfInventions() {
         getListOfInventions()
         resetTimer()
         beginTimer()
+        updateTimer()
         hideEndButtons()
         
         TimerLabel.text = "0:\(timeLeft)"
         
-        InventionListed1.text = randomInvention1.invention.event
-        InventionListed2.text = randomInvention2.invention.event
-        InventionListed3.text = randomInvention3.invention.event
-        InventionListed4.text = randomInvention4.invention.event
+        InventionListed1.titleLabel?.text = randomInvention1.event
+        InventionListed2.titleLabel?.text = randomInvention2.event
+        InventionListed3.titleLabel?.text = randomInvention3.event
+        InventionListed4.titleLabel?.text = randomInvention4.event
         
+        if roundsPlayed == roundsPerGame {
+            gameOver()
+        }
+    }
+    
+    func checkAnswer() {
+        timer.invalidate()
+        roundsPlayed += 1
+        TimerLabel.hidden = true
+        
+        if InventionListed1.titleLabel?.text == answer1 && InventionListed2.titleLabel?.text == answer2 && InventionListed3.titleLabel?.text == answer3 && InventionListed4.titleLabel?.text == answer4 {
+            RoundSuccess.hidden = false
+            InformationLabel.text = "Tap an event to learn more"
+            roundsCorrect += 1
+            playCorrectSound()
+        } else {
+            RoundFailure.hidden = false
+            InformationLabel.text = "Tap an event to learn more"
+            playIncorrectSound()
+        }
+    }
+    
+    func gameOver() {
+        // MARK: End game
+    }
+    
+    func swapInventions(firstPlace firstPlace: UIButton, secondPlace: UIButton) {
+        let firstInvention = firstPlace.titleLabel?.text
+        let secondInvention = secondPlace.titleLabel?.text
+        firstPlace.titleLabel?.text = secondInvention
+        secondPlace.titleLabel?.text = firstInvention
     }
     
     func beginTimer() {
@@ -168,7 +219,7 @@ class ViewController: UIViewController {
         
         if timeLeft == 0 {
             timer.invalidate()
-            // Add after round stuff
+            checkAnswer()
         }
     }
     
@@ -177,10 +228,6 @@ class ViewController: UIViewController {
         counter = 45
         timerRunning = false
         beginTimer()
-    }
-    
-    func checkRound() {
-        
     }
     
     func hideEndButtons() {

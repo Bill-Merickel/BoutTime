@@ -60,9 +60,3 @@ class PlistUnarchiver {
         return listOfInventions
     }
 }
-
-struct InventionSet {
-    var invention: Invention
-    var order: Int
-    var position: Int
-}
