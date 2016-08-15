@@ -71,6 +71,10 @@ class ViewController: UIViewController {
         loadIncorrectSound()
         setupAppUI()
         getListOfInventions()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         showAlert()
     }
     
@@ -198,9 +202,9 @@ class ViewController: UIViewController {
     
     func showAlert() {
         let alertController = UIAlertController(title: "Welcome to Bout Time!", message: "In this game, you are given a list of inventions which you have to sort by the order of the invention, oldest on top. You have 6 rounds.", preferredStyle: .Alert)
-        presentViewController(alertController, animated: true, completion: nil)
         let okAction = UIAlertAction(title: "OK", style: .Default, handler: dismissAlert)
         alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func dismissAlert(sender: UIAlertAction) {
