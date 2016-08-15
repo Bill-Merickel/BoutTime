@@ -34,8 +34,8 @@
                                             <action selector="View1Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSo-HA-CaO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u24-e5-rgq">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="u24-e5-rgq">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,7 +49,7 @@
                                     <constraint firstItem="u24-e5-rgq" firstAttribute="leading" secondItem="1e5-9C-NGx" secondAttribute="leading" id="WUY-zM-KmM"/>
                                     <constraint firstAttribute="trailing" secondItem="VsX-cb-y8Q" secondAttribute="trailing" id="dHd-9I-eZd"/>
                                     <constraint firstAttribute="bottom" secondItem="u24-e5-rgq" secondAttribute="bottom" id="eyd-PA-lJS"/>
-                                    <constraint firstItem="VsX-cb-y8Q" firstAttribute="leading" secondItem="u24-e5-rgq" secondAttribute="trailing" constant="87" id="jiS-0n-WnZ"/>
+                                    <constraint firstItem="VsX-cb-y8Q" firstAttribute="leading" secondItem="u24-e5-rgq" secondAttribute="trailing" constant="8" id="jiS-0n-WnZ"/>
                                     <constraint firstItem="VsX-cb-y8Q" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="top" id="oHI-0E-2jn"/>
                                     <constraint firstItem="u24-e5-rgq" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="top" id="wh8-8c-5cc"/>
                                 </constraints>
@@ -85,8 +85,8 @@
                                             <action selector="View2Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xS7-FF-Y1Z"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-I8-M77">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-I8-M77">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -94,7 +94,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="DjH-DM-nfX" firstAttribute="leading" secondItem="XWV-I8-M77" secondAttribute="trailing" constant="87" id="1kX-Qw-A8H"/>
+                                    <constraint firstItem="DjH-DM-nfX" firstAttribute="leading" secondItem="XWV-I8-M77" secondAttribute="trailing" constant="8" id="1kX-Qw-A8H"/>
                                     <constraint firstAttribute="trailing" secondItem="qwo-9V-cn2" secondAttribute="trailing" id="2Pm-FW-rcd"/>
                                     <constraint firstAttribute="trailing" secondItem="DjH-DM-nfX" secondAttribute="trailing" id="F2q-Gc-Ouv"/>
                                     <constraint firstItem="XWV-I8-M77" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="top" id="LVq-Xj-HQp"/>
@@ -124,12 +124,6 @@
                                             <action selector="View3Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ad-Pz-HpO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-UU-qYV">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
-                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDo-FY-POg">
                                         <rect key="frame" x="464" y="50" width="36" height="50"/>
                                         <constraints>
@@ -144,6 +138,12 @@
                                             <action selector="View3Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pEf-cw-qHZ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-UU-qYV">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -155,7 +155,7 @@
                                     <constraint firstAttribute="trailing" secondItem="eCR-ye-f5M" secondAttribute="trailing" id="Mpu-Ha-Cgp"/>
                                     <constraint firstItem="mDo-FY-POg" firstAttribute="top" secondItem="eCR-ye-f5M" secondAttribute="bottom" id="O6G-sJ-jiq"/>
                                     <constraint firstItem="1bl-UU-qYV" firstAttribute="leading" secondItem="P4g-7D-x4m" secondAttribute="leading" id="Ubj-Ku-pBz"/>
-                                    <constraint firstItem="eCR-ye-f5M" firstAttribute="leading" secondItem="1bl-UU-qYV" secondAttribute="trailing" constant="87" id="Uny-0I-IjR"/>
+                                    <constraint firstItem="eCR-ye-f5M" firstAttribute="leading" secondItem="1bl-UU-qYV" secondAttribute="trailing" constant="8" id="Uny-0I-IjR"/>
                                     <constraint firstAttribute="trailing" secondItem="mDo-FY-POg" secondAttribute="trailing" id="a7F-NQ-N6f"/>
                                     <constraint firstItem="mDo-FY-POg" firstAttribute="top" secondItem="eCR-ye-f5M" secondAttribute="bottom" id="b7C-C2-9px"/>
                                     <constraint firstItem="eCR-ye-f5M" firstAttribute="top" secondItem="P4g-7D-x4m" secondAttribute="top" id="eFo-P2-0y1"/>
@@ -183,8 +183,9 @@
                                             <action selector="View4Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nah-mC-F9O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiR-rl-U0j">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yiR-rl-U0j">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -195,7 +196,7 @@
                                     <constraint firstItem="DxS-bV-cIz" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="top" id="6Lh-GX-vO0"/>
                                     <constraint firstItem="DxS-bV-cIz" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="top" id="AOQ-Po-Dfg"/>
                                     <constraint firstAttribute="bottom" secondItem="DxS-bV-cIz" secondAttribute="bottom" id="Z3e-JG-R8d"/>
-                                    <constraint firstItem="DxS-bV-cIz" firstAttribute="leading" secondItem="yiR-rl-U0j" secondAttribute="trailing" constant="87" id="ZKI-ap-HHi"/>
+                                    <constraint firstItem="DxS-bV-cIz" firstAttribute="leading" secondItem="yiR-rl-U0j" secondAttribute="trailing" constant="8" id="ZKI-ap-HHi"/>
                                     <constraint firstItem="yiR-rl-U0j" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="top" id="cv0-L3-kP6"/>
                                     <constraint firstAttribute="trailing" secondItem="DxS-bV-cIz" secondAttribute="trailing" id="dWb-NI-Dr2"/>
                                     <constraint firstAttribute="trailing" secondItem="DxS-bV-cIz" secondAttribute="trailing" id="eej-nV-wdT"/>
@@ -214,7 +215,6 @@
                                 <state key="normal" title="Button" image="next_round_fail.png"/>
                                 <connections>
                                     <action selector="FailureNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVo-tw-HMh"/>
-                                    <action selector="FailureNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GBS-qR-S7v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWu-ac-sgy">
@@ -226,23 +226,21 @@
                                 <state key="normal" title="Button" image="next_round_success.png"/>
                                 <connections>
                                     <action selector="SuccessNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfC-xr-lqJ"/>
-                                    <action selector="SuccessNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STV-v6-21Z"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-so-gwp">
                                 <rect key="frame" x="247" y="478" width="107" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="6X3-hZ-wy9"/>
-                                    <constraint firstAttribute="height" constant="50" id="McD-jn-fti"/>
+                                    <constraint firstAttribute="width" constant="107" id="9KD-cH-dA1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
-                                <rect key="frame" x="186" y="523" width="229" height="67"/>
+                                <rect key="frame" x="134" y="525" width="333" height="67"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="229" id="BK6-ex-YpC"/>
+                                    <constraint firstAttribute="width" constant="333" id="BK6-ex-YpC"/>
                                     <constraint firstAttribute="height" constant="67" id="vpy-Ty-mWc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -256,41 +254,52 @@
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="AXb-Yw-9fj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v4x-2S-wOD" secondAttribute="trailing" constant="150" id="BK9-hv-Glt"/>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="top" secondItem="P4g-7D-x4m" secondAttribute="bottom" constant="10" id="CdJ-t2-8a4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dma-0f-Rl5" secondAttribute="bottom" constant="10" id="EIX-8U-J3X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1e5-9C-NGx" secondAttribute="trailing" constant="30" id="Ee2-rA-oYT"/>
-                            <constraint firstItem="dhn-so-gwp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H0W-bn-XSw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oWu-ac-sgy" secondAttribute="trailing" constant="150" id="Ihd-nq-40b"/>
+                            <constraint firstItem="dhn-so-gwp" firstAttribute="centerY" secondItem="v4x-2S-wOD" secondAttribute="centerY" id="JuH-Nf-STK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PP6-62-Fto" secondAttribute="trailing" constant="30" id="MqV-dH-Pbe"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="bottom" constant="10" id="NV5-fF-H2t"/>
                             <constraint firstItem="v4x-2S-wOD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NWK-fc-Zjo"/>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="top" secondItem="P4g-7D-x4m" secondAttribute="bottom" constant="10" id="Nde-Bq-x33"/>
+                            <constraint firstItem="v4x-2S-wOD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NlG-Ov-Dpm"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OOr-z7-oek"/>
                             <constraint firstItem="1e5-9C-NGx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="RWK-ib-4dK"/>
-                            <constraint firstItem="dhn-so-gwp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="227" id="Z6Z-yp-Jj2"/>
-                            <constraint firstItem="dhn-so-gwp" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="18" id="aRU-L6-whh"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="b9O-xU-hdd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dhn-so-gwp" secondAttribute="trailing" constant="226" id="c8F-We-KPn"/>
+                            <constraint firstItem="oWu-ac-sgy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bzz-9a-Jr3"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="doQ-Xv-alR"/>
                             <constraint firstItem="v4x-2S-wOD" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="eJg-Mk-ywZ"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="fbl-uy-pAs"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="jaN-i8-EOc"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kss-Ei-taV"/>
                             <constraint firstItem="1e5-9C-NGx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="kzY-NO-WZr"/>
+                            <constraint firstItem="dhn-so-gwp" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="18" id="mDe-49-9bt"/>
                             <constraint firstItem="v4x-2S-wOD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="mvN-pg-D1W"/>
+                            <constraint firstItem="dhn-so-gwp" firstAttribute="centerX" secondItem="v4x-2S-wOD" secondAttribute="centerX" id="pJl-e7-o0c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P4g-7D-x4m" secondAttribute="trailing" constant="30" id="qGq-fZ-y7F"/>
-                            <constraint firstItem="Dma-0f-Rl5" firstAttribute="centerX" secondItem="dhn-so-gwp" secondAttribute="centerX" id="ruD-LX-5zv"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="bottom" constant="10" id="tiE-j3-bjF"/>
+                            <constraint firstItem="Dma-0f-Rl5" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="65" id="wxa-sI-gb3"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="xO5-pX-aYh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LAC-AE-OA5" secondAttribute="trailing" constant="30" id="zYl-Vy-e7V"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="zlJ-C4-h74"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ihd-nq-40b"/>
+                                <exclude reference="b9O-xU-hdd"/>
+                                <exclude reference="bzz-9a-Jr3"/>
+                                <exclude reference="doQ-Xv-alR"/>
+                                <exclude reference="BK9-hv-Glt"/>
+                                <exclude reference="NlG-Ov-Dpm"/>
+                                <exclude reference="mvN-pg-D1W"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="InformationLabel" destination="Dma-0f-Rl5" id="B8P-xI-4Vz"/>
-                        <outlet property="InventionListed1" destination="u24-e5-rgq" id="IGD-4R-ZSL"/>
-                        <outlet property="InventionListed2" destination="XWV-I8-M77" id="6G4-93-gXA"/>
-                        <outlet property="InventionListed3" destination="1bl-UU-qYV" id="y1T-ty-09k"/>
-                        <outlet property="InventionListed4" destination="yiR-rl-U0j" id="OJ6-9Y-HD3"/>
+                        <outlet property="InventionListed1" destination="u24-e5-rgq" id="Zpf-a5-DBg"/>
+                        <outlet property="InventionListed2" destination="XWV-I8-M77" id="jq9-4H-mul"/>
+                        <outlet property="InventionListed3" destination="1bl-UU-qYV" id="0Nh-HA-1rX"/>
+                        <outlet property="InventionListed4" destination="yiR-rl-U0j" id="aRX-PR-HK2"/>
                         <outlet property="RoundFailure" destination="v4x-2S-wOD" id="V0q-3b-iBL"/>
                         <outlet property="RoundSuccess" destination="oWu-ac-sgy" id="Q9n-ji-er9"/>
                         <outlet property="TimerLabel" destination="dhn-so-gwp" id="wOG-Cf-NBe"/>
@@ -298,11 +307,52 @@
                         <outlet property="View2" destination="LAC-AE-OA5" id="xKD-58-3nP"/>
                         <outlet property="View3" destination="P4g-7D-x4m" id="gL5-Gy-dkc"/>
                         <outlet property="View4" destination="PP6-62-Fto" id="Ymi-0s-l6h"/>
+                        <segue destination="i2j-WT-LcM" kind="presentation" id="68h-Sw-UYl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="415"/>
+            <point key="canvasLocation" x="407" y="563"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OKH-bj-qDf">
+            <objects>
+                <viewController id="i2j-WT-LcM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WcZ-Bn-QUo"/>
+                        <viewControllerLayoutGuide type="bottom" id="UH6-Uq-Uba"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SJG-bG-oQt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kn-5Z-WKd">
+                                <rect key="frame" x="105" y="206" width="391" height="188"/>
+                                <string key="text">You are given a set of inventions and you have to organize them so the oldest invention is on the top, and it descends downwards.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-cL-PyL">
+                                <rect key="frame" x="204" y="495" width="192" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.59821109479575996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Gotcha">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.041046944598614132" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Bout Time!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhR-GQ-VJz">
+                                <rect key="frame" x="88" y="64" width="425" height="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDb-h7-J29" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="563"/>
         </scene>
     </scenes>
     <resources>

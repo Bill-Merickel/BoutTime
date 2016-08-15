@@ -23,10 +23,6 @@ class ViewController: UIViewController {
     var randomInvention2: Invention = Invention(event: "", year: 0, url: "")
     var randomInvention3: Invention = Invention(event: "", year: 0, url: "")
     var randomInvention4: Invention = Invention(event: "", year: 0, url: "")
-    var answer1: String = ""
-    var answer2: String = ""
-    var answer3: String = ""
-    var answer4: String = ""
     
     // Timer Mechanics
     var timer = NSTimer()
@@ -39,16 +35,15 @@ class ViewController: UIViewController {
     var incorrectSound: SystemSoundID = 1
     
     // Connections to View
-    
     @IBOutlet weak var View1: UIView!
     @IBOutlet weak var View2: UIView!
     @IBOutlet weak var View3: UIView!
     @IBOutlet weak var View4: UIView!
-    @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var InventionListed1: UIButton!
     @IBOutlet weak var InventionListed2: UIButton!
     @IBOutlet weak var InventionListed3: UIButton!
     @IBOutlet weak var InventionListed4: UIButton!
+    @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var View1DownSelected: UIImageView!
     @IBOutlet weak var View2UpSelected: UIImageView!
     @IBOutlet weak var View2DownSelected: UIImageView!
@@ -56,7 +51,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var View3DownSelected: UIImageView!
     @IBOutlet weak var View4UpSelected: UIImageView!
     @IBOutlet weak var InformationLabel: UILabel!
-    
     @IBOutlet weak var RoundSuccess: UIButton!
     @IBOutlet weak var RoundFailure: UIButton!
     
@@ -64,6 +58,7 @@ class ViewController: UIViewController {
         do {
             let array = try PlistConverter.arrayFromFile("Inventions", ofType: "plist")
             self.listOfInventions = PlistUnarchiver.createListFromArray(array)
+            self.copyOfListOfInventions = PlistUnarchiver.createListFromArray(array)
         } catch let error {
             fatalError("\(error)")
         }
@@ -76,7 +71,7 @@ class ViewController: UIViewController {
         loadIncorrectSound()
         setupAppUI()
         getListOfInventions()
-        displaySetOfInventions()
+        showAlert()
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +87,19 @@ class ViewController: UIViewController {
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
     }
-
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    // Check answer when device is shaken
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            checkAnswer()
+        }
+    }
+    
+    // Buttons to swap events
     @IBAction func View1Down(sender: UIButton) {
         swapInventions(firstPlace: InventionListed1, secondPlace: InventionListed2)
     }
@@ -111,19 +118,15 @@ class ViewController: UIViewController {
     @IBAction func View4Up(sender: UIButton) {
         swapInventions(firstPlace: InventionListed4, secondPlace: InventionListed3)
     }
-    
     @IBAction func SuccessNextRound() {
-        getListOfInventions()
         displaySetOfInventions()
     }
     @IBAction func FailureNextRound() {
-        getListOfInventions()
         displaySetOfInventions()
     }
     
     func setupAppUI() {
         hideEndButtons()
-        
         View1.layer.cornerRadius = 5
         View2.layer.cornerRadius = 5
         View3.layer.cornerRadius = 5
@@ -149,27 +152,22 @@ class ViewController: UIViewController {
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
-        setOfInventions.sort({$0.year < $1.year})
-        
-        answer1 = setOfInventions[0].event
-        answer2 = setOfInventions[1].event
-        answer3 = setOfInventions[2].event
-        answer4 = setOfInventions[3].event
+        setOfInventions.sortInPlace({$0.year < $1.year})
     }
     
     func displaySetOfInventions() {
         getListOfInventions()
         resetTimer()
         beginTimer()
-        updateTimer()
         hideEndButtons()
-        
+        disableURLEvents()
+        TimerLabel.hidden = false
         TimerLabel.text = "0:\(timeLeft)"
-        
-        InventionListed1.titleLabel?.text = randomInvention1.event
-        InventionListed2.titleLabel?.text = randomInvention2.event
-        InventionListed3.titleLabel?.text = randomInvention3.event
-        InventionListed4.titleLabel?.text = randomInvention4.event
+        InformationLabel.text = "Shake to Complete"
+        InventionListed1.setTitle(randomInvention1.event, forState: .Normal)
+        InventionListed2.setTitle(randomInvention2.event, forState: .Normal)
+        InventionListed3.setTitle(randomInvention3.event, forState: .Normal)
+        InventionListed4.setTitle(randomInvention4.event, forState: .Normal)
         
         if roundsPlayed == roundsPerGame {
             gameOver()
@@ -180,8 +178,9 @@ class ViewController: UIViewController {
         timer.invalidate()
         roundsPlayed += 1
         TimerLabel.hidden = true
+        enableURLEvents()
         
-        if InventionListed1.titleLabel?.text == answer1 && InventionListed2.titleLabel?.text == answer2 && InventionListed3.titleLabel?.text == answer3 && InventionListed4.titleLabel?.text == answer4 {
+        if InventionListed1.titleLabel?.text == setOfInventions[0].event && InventionListed2.titleLabel?.text == setOfInventions[1].event && InventionListed3.titleLabel?.text == setOfInventions[2].event && InventionListed4.titleLabel?.text == setOfInventions[3].event {
             RoundSuccess.hidden = false
             InformationLabel.text = "Tap an event to learn more"
             roundsCorrect += 1
@@ -197,11 +196,36 @@ class ViewController: UIViewController {
         // MARK: End game
     }
     
+    func showAlert() {
+        let alertController = UIAlertController(title: "Welcome to Bout Time!", message: "In this game, you are given a list of inventions which you have to sort by the order of the invention, oldest on top. You have 6 rounds.", preferredStyle: .Alert)
+        presentViewController(alertController, animated: true, completion: nil)
+        let okAction = UIAlertAction(title: "OK", style: .Default, handler: dismissAlert)
+        alertController.addAction(okAction)
+    }
+    
+    func dismissAlert(sender: UIAlertAction) {
+        displaySetOfInventions()
+    }
+    
     func swapInventions(firstPlace firstPlace: UIButton, secondPlace: UIButton) {
-        let firstInvention = firstPlace.titleLabel?.text
-        let secondInvention = secondPlace.titleLabel?.text
-        firstPlace.titleLabel?.text = secondInvention
-        secondPlace.titleLabel?.text = firstInvention
+        let firstInvention = firstPlace.titleForState(.Normal)
+        let secondInvention = secondPlace.titleForState(.Normal)
+        firstPlace.setTitle(secondInvention, forState: .Normal)
+        secondPlace.setTitle(firstInvention, forState: .Normal)
+    }
+    
+    func enableURLEvents() {
+        InventionListed1.enabled = true
+        InventionListed2.enabled = true
+        InventionListed3.enabled = true
+        InventionListed4.enabled = true
+    }
+    
+    func disableURLEvents() {
+        InventionListed1.enabled = false
+        InventionListed2.enabled = false
+        InventionListed3.enabled = false
+        InventionListed4.enabled = false
     }
     
     func beginTimer() {
@@ -209,7 +233,7 @@ class ViewController: UIViewController {
             counter = 45
             timeLeft = 45
             timerRunning = true
-            timer = NSTimer.init(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
     }
     
@@ -221,18 +245,22 @@ class ViewController: UIViewController {
             timer.invalidate()
             checkAnswer()
         }
+        
+        if timeLeft <= 9 {
+            TimerLabel.text = "0:0\(timeLeft)"
+        }
     }
     
     func resetTimer() {
         timeLeft = 45
         counter = 45
         timerRunning = false
-        beginTimer()
     }
     
     func hideEndButtons() {
         RoundSuccess.hidden = true
         RoundFailure.hidden = true
+        
     }
     
     func loadCorrectSound() {
