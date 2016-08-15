@@ -40,6 +40,9 @@
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Invention1URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Mo-g3-ESx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,6 +93,9 @@
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Invention2URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Azp-YC-krV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,6 +149,9 @@
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Invention3URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VRA-FO-bVg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,10 +194,16 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yiR-rl-U0j">
                                         <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="456" id="Ier-oW-eoB"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Invention4URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QSY-nw-boQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,16 +221,6 @@
                                     <constraint firstAttribute="bottom" secondItem="DxS-bV-cIz" secondAttribute="bottom" id="wUg-3T-7us"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a4-1f-MVc">
-                                <rect key="frame" x="170" y="468" width="260" height="70"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="0:60">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="PlayNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="St5-bc-glc"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap an event to learn more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
                                 <rect key="frame" x="155" y="525" width="290" height="67"/>
                                 <constraints>
@@ -232,11 +237,25 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a4-1f-MVc">
+                                <rect key="frame" x="170" y="468" width="260" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="KTm-gw-5us"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="0:60">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="St5-bc-glc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="0Un-zN-a5Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dma-0f-Rl5" secondAttribute="trailing" constant="170" id="1c4-RZ-vRb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8a4-1f-MVc" secondAttribute="bottom" constant="62" id="AgD-12-8iD"/>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="top" secondItem="P4g-7D-x4m" secondAttribute="bottom" constant="10" id="CdJ-t2-8a4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1e5-9C-NGx" secondAttribute="trailing" constant="30" id="Ee2-rA-oYT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PP6-62-Fto" secondAttribute="trailing" constant="30" id="MqV-dH-Pbe"/>
@@ -248,7 +267,9 @@
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="jaN-i8-EOc"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kss-Ei-taV"/>
                             <constraint firstItem="1e5-9C-NGx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="kzY-NO-WZr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8a4-1f-MVc" secondAttribute="trailing" constant="150" id="nf5-cO-hrC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P4g-7D-x4m" secondAttribute="trailing" constant="30" id="qGq-fZ-y7F"/>
+                            <constraint firstItem="8a4-1f-MVc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="tKl-BL-CM3"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="bottom" constant="10" id="tiE-j3-bjF"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="65" id="wxa-sI-gb3"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="xO5-pX-aYh"/>
@@ -265,13 +286,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="AnswerOutcome" destination="8a4-1f-MVc" id="oFI-Fh-pet"/>
                         <outlet property="InformationLabel" destination="Dma-0f-Rl5" id="B8P-xI-4Vz"/>
                         <outlet property="InventionListed1" destination="u24-e5-rgq" id="Zpf-a5-DBg"/>
                         <outlet property="InventionListed2" destination="XWV-I8-M77" id="jq9-4H-mul"/>
                         <outlet property="InventionListed3" destination="1bl-UU-qYV" id="0Nh-HA-1rX"/>
                         <outlet property="InventionListed4" destination="yiR-rl-U0j" id="aRX-PR-HK2"/>
-                        <outlet property="TimerLabel" destination="8a4-1f-MVc" id="f9O-gL-e2C"/>
+                        <outlet property="TimerLabel" destination="8a4-1f-MVc" id="ypB-8e-uq3"/>
                         <outlet property="View1" destination="1e5-9C-NGx" id="srJ-Ix-iCX"/>
                         <outlet property="View2" destination="LAC-AE-OA5" id="xKD-58-3nP"/>
                         <outlet property="View3" destination="P4g-7D-x4m" id="gL5-Gy-dkc"/>
@@ -280,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-550" y="564"/>
+            <point key="canvasLocation" x="-191" y="478"/>
         </scene>
     </scenes>
     <resources>

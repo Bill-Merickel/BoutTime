@@ -9,6 +9,7 @@
 import UIKit
 import GameKit
 import AudioToolbox
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -135,6 +136,24 @@ class ViewController: UIViewController {
         displaySetOfInventions()
     }
     
+    @IBAction func Invention1URL(sender: UIButton) {
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[0].invention.url)!, entersReaderIfAvailable: true)
+        self.presentViewController(sfViewController, animated: true, completion: nil)
+    }
+    @IBAction func Invention2URL(sender: UIButton) {
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[1].invention.url)!, entersReaderIfAvailable: true)
+        self.presentViewController(sfViewController, animated: true, completion: nil)
+    }
+    @IBAction func Invention3URL(sender: UIButton) {
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[2].invention.url)!, entersReaderIfAvailable: true)
+        self.presentViewController(sfViewController, animated: true, completion: nil)
+    }
+    @IBAction func Invention4URL(sender: UIButton) {
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[3].invention.url)!, entersReaderIfAvailable: true)
+        self.presentViewController(sfViewController, animated: true, completion: nil)
+    }
+    
+    
     func setupAppUI() {
         View1.layer.cornerRadius = 5
         View2.layer.cornerRadius = 5
@@ -189,14 +208,14 @@ class ViewController: UIViewController {
         }
     }
     
-    func swapInventions(firstInvention: RandomInvention, secondInvention: RandomInvention) {
-        var firstInventionIndex = firstInvention.index
-        var secondInventionIndex = secondInvention.index
+    func swapInventions(var firstInvention: RandomInvention, var secondInvention: RandomInvention) {
+        let firstInventionIndex = firstInvention.index
+        let secondInventionIndex = secondInvention.index
         
         swap(&setOfInventions[firstInventionIndex], &setOfInventions[secondInventionIndex])
         
-        firstInventionIndex += 1
-        secondInventionIndex -= 1
+        firstInvention.index = secondInventionIndex
+        secondInvention.index = firstInventionIndex
     }
     
     func checkAnswer() {
@@ -231,6 +250,7 @@ class ViewController: UIViewController {
     }
     
     func dismissAlert(sender: UIAlertAction) {
+        getListOfInventions()
         displaySetOfInventions()
     }
     
