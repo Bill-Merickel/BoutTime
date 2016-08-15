@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346" y="507"/>
+            <point key="canvasLocation" x="-550" y="564"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OKH-bj-qDf">
@@ -295,7 +295,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got a score of 0 out of 6. Wanna play again?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kn-5Z-WKd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You got a score of 0 out of 6. Wanna play again?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kn-5Z-WKd">
                                 <rect key="frame" x="172" y="206" width="257" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="lZi-Qo-pwg"/>
@@ -313,8 +313,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-69-Obj">
-                                <rect key="frame" x="170" y="474" width="260" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-69-Obj">
+                                <rect key="frame" x="183" y="439" width="235" height="70"/>
                                 <state key="normal" title="Button" image="play_again.png"/>
                             </button>
                         </subviews>
@@ -322,16 +322,38 @@
                         <constraints>
                             <constraint firstItem="PhR-GQ-VJz" firstAttribute="leading" secondItem="SJG-bG-oQt" secondAttribute="leadingMargin" constant="68" id="363-Yj-ftm"/>
                             <constraint firstItem="7Kn-5Z-WKd" firstAttribute="centerY" secondItem="SJG-bG-oQt" secondAttribute="centerY" id="9WB-8V-I3u"/>
+                            <constraint firstItem="PhR-GQ-VJz" firstAttribute="top" secondItem="WcZ-Bn-QUo" secondAttribute="bottom" constant="44" id="DIK-lK-HPc"/>
                             <constraint firstItem="7Kn-5Z-WKd" firstAttribute="top" secondItem="PhR-GQ-VJz" secondAttribute="bottom" constant="42" id="Fgs-M4-tzj"/>
+                            <constraint firstItem="F4h-69-Obj" firstAttribute="leading" secondItem="SJG-bG-oQt" secondAttribute="leadingMargin" constant="163" id="HM3-dc-gbP"/>
                             <constraint firstItem="PhR-GQ-VJz" firstAttribute="top" secondItem="WcZ-Bn-QUo" secondAttribute="bottom" constant="44" id="K4r-Hk-k4u"/>
+                            <constraint firstItem="PhR-GQ-VJz" firstAttribute="centerX" secondItem="SJG-bG-oQt" secondAttribute="centerX" id="NfU-bt-o3j"/>
+                            <constraint firstItem="UH6-Uq-Uba" firstAttribute="top" secondItem="F4h-69-Obj" secondAttribute="bottom" constant="91" id="VWq-CQ-YTT"/>
+                            <constraint firstItem="7Kn-5Z-WKd" firstAttribute="leading" secondItem="SJG-bG-oQt" secondAttribute="leadingMargin" constant="152" id="Z6M-xX-0SF"/>
+                            <constraint firstItem="F4h-69-Obj" firstAttribute="centerX" secondItem="SJG-bG-oQt" secondAttribute="centerX" id="fAh-yJ-L1c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Kn-5Z-WKd" secondAttribute="trailing" constant="151" id="kFp-w4-BQG"/>
+                            <constraint firstItem="PhR-GQ-VJz" firstAttribute="leading" secondItem="SJG-bG-oQt" secondAttribute="leadingMargin" constant="68" id="lfg-dn-X58"/>
                             <constraint firstItem="7Kn-5Z-WKd" firstAttribute="centerX" secondItem="PhR-GQ-VJz" secondAttribute="centerX" id="q2k-ii-Z0c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F4h-69-Obj" secondAttribute="trailing" constant="162" id="ril-Ic-Hoe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PhR-GQ-VJz" secondAttribute="trailing" constant="67" id="tfx-xj-MuX"/>
+                            <constraint firstItem="7Kn-5Z-WKd" firstAttribute="centerX" secondItem="SJG-bG-oQt" secondAttribute="centerX" id="w23-aZ-7G7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PhR-GQ-VJz" secondAttribute="trailing" constant="67" id="yyG-8l-PBV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="363-Yj-ftm"/>
+                                <exclude reference="K4r-Hk-k4u"/>
+                                <exclude reference="tfx-xj-MuX"/>
+                                <exclude reference="Fgs-M4-tzj"/>
+                                <exclude reference="Z6M-xX-0SF"/>
+                                <exclude reference="kFp-w4-BQG"/>
+                                <exclude reference="q2k-ii-Z0c"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDb-h7-J29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="564"/>
+            <point key="canvasLocation" x="297" y="506"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     var randomInvention2 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
     var randomInvention3 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
     var randomInvention4 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
+    let successImage = UIImage(named: "next_round_success")
+    let failImage = UIImage(named: "next_round_success")
     
     // Timer Mechanics
     var timer = NSTimer()
@@ -122,10 +124,15 @@ class ViewController: UIViewController {
         swapInventions(setOfInventions[2], secondInvention: setOfInventions[3])
     }
     @IBAction func View4Up(sender: UIButton) {
-        swapInventions(setOfInventions[3], secondInvention: setOfInventions[1])
+        swapInventions(setOfInventions[3], secondInvention: setOfInventions[2])
     }
     @IBAction func PlayNextRound(sender: AnyObject) {
-        
+        breakListOfInventions()
+        getListOfInventions()
+        resetTimer()
+        beginTimer()
+        disableURLEvents()
+        displaySetOfInventions()
     }
     
     func setupAppUI() {
@@ -155,9 +162,11 @@ class ViewController: UIViewController {
         listOfInventions.removeAtIndex(randomIndex2)
         randomIndex3 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention3.invention = listOfInventions[randomIndex3]
+        randomInvention2.index = 2
         listOfInventions.removeAtIndex(randomIndex3)
         randomIndex4 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention4.invention = listOfInventions[randomIndex4]
+        randomInvention4.index = 3
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
@@ -166,12 +175,9 @@ class ViewController: UIViewController {
     }
     
     func displaySetOfInventions() {
-        getListOfInventions()
-        resetTimer()
-        beginTimer()
-        disableURLEvents()
         TimerLabel.hidden = false
-        TimerLabel.titleLabel?.text = "0:\(timeLeft)"
+        TimerLabel.enabled = false
+        TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
         InformationLabel.text = "\(setOfInventions.count)"
         InventionListed1.setTitle(setOfInventions[0].invention.event, forState: .Normal)
         InventionListed2.setTitle(setOfInventions[1].invention.event, forState: .Normal)
@@ -184,26 +190,32 @@ class ViewController: UIViewController {
     }
     
     func swapInventions(firstInvention: RandomInvention, secondInvention: RandomInvention) {
-        let firstInventionIndex = firstInvention.index
-        let secondInventionIndex = secondInvention.index
+        var firstInventionIndex = firstInvention.index
+        var secondInventionIndex = secondInvention.index
         
         swap(&setOfInventions[firstInventionIndex], &setOfInventions[secondInventionIndex])
+        
+        firstInventionIndex += 1
+        secondInventionIndex -= 1
     }
     
     func checkAnswer() {
         timer.invalidate()
+        TimerLabel.enabled = true
+        TimerLabel.setTitle("", forState: .Normal)
         roundsPlayed += 1
-        TimerLabel.hidden = true
+        TimerLabel.enabled = true
         enableURLEvents()
-        breakListOfInventions()
         
-        if setOfInventions[0].index == setOfInventionsInOrder[0].index && setOfInventions[1].index == setOfInventionsInOrder[1].index && setOfInventions[2].index == setOfInventionsInOrder[2].index && setOfInventions[3].index == setOfInventionsInOrder[3].index {
+        if randomInvention1.index == setOfInventionsInOrder[0].index && randomInvention2.index == setOfInventionsInOrder[1].index && randomInvention3.index == setOfInventionsInOrder[2].index && randomInvention4.index == setOfInventionsInOrder[3].index {
             self.InformationLabel.text = "Tap an event to learn more"
             self.roundsCorrect += 1
             self.playCorrectSound()
+            self.TimerLabel.setImage(successImage, forState: .Normal)
         } else {
             self.InformationLabel.text = "Tap an event to learn more"
             self.playIncorrectSound()
+            self.TimerLabel.setImage(failImage, forState: .Normal)
         }
     }
     
