@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     
     // Timer Mechanics
     var timer = NSTimer()
-    var counter: NSTimeInterval = 45
-    var timeLeft = 45
+    var counter: NSTimeInterval = 60
+    var timeLeft = 60
     var timerRunning = false
     
     // Sound Mechanics
@@ -70,7 +70,6 @@ class ViewController: UIViewController {
         loadCorrectSound()
         loadIncorrectSound()
         setupAppUI()
-        getListOfInventions()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -138,10 +137,10 @@ class ViewController: UIViewController {
     }
     
     func getListOfInventions() {
-        var randomIndex1 = 0
-        var randomIndex2 = 0
-        var randomIndex3 = 0
-        var randomIndex4 = 0
+        var randomIndex1: Int
+        var randomIndex2: Int
+        var randomIndex3: Int
+        var randomIndex4: Int
         randomIndex1 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention1 = listOfInventions[randomIndex1]
         listOfInventions.removeAtIndex(randomIndex1)
@@ -167,7 +166,7 @@ class ViewController: UIViewController {
         disableURLEvents()
         TimerLabel.hidden = false
         TimerLabel.text = "0:\(timeLeft)"
-        InformationLabel.text = "Shake to Complete"
+        InformationLabel.text = "\(setOfInventions.count)"
         InventionListed1.setTitle(randomInvention1.event, forState: .Normal)
         InventionListed2.setTitle(randomInvention2.event, forState: .Normal)
         InventionListed3.setTitle(randomInvention3.event, forState: .Normal)
@@ -183,6 +182,7 @@ class ViewController: UIViewController {
         roundsPlayed += 1
         TimerLabel.hidden = true
         enableURLEvents()
+        breakListOfInventions()
         
         if InventionListed1.titleLabel?.text == setOfInventions[0].event && InventionListed2.titleLabel?.text == setOfInventions[1].event && InventionListed3.titleLabel?.text == setOfInventions[2].event && InventionListed4.titleLabel?.text == setOfInventions[3].event {
             RoundSuccess.hidden = false
@@ -234,8 +234,8 @@ class ViewController: UIViewController {
     
     func beginTimer() {
         if timerRunning == false {
-            counter = 45
-            timeLeft = 45
+            counter = 60
+            timeLeft = 60
             timerRunning = true
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
@@ -259,6 +259,10 @@ class ViewController: UIViewController {
         timeLeft = 45
         counter = 45
         timerRunning = false
+    }
+    
+    func breakListOfInventions() {
+        setOfInventions.removeAll()
     }
     
     func hideEndButtons() {

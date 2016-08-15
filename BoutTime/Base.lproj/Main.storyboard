@@ -228,8 +228,8 @@
                                     <action selector="SuccessNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfC-xr-lqJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-so-gwp">
-                                <rect key="frame" x="247" y="478" width="107" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-so-gwp">
+                                <rect key="frame" x="247" y="414" width="107" height="178"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="9KD-cH-dA1"/>
                                 </constraints>
@@ -237,21 +237,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
-                                <rect key="frame" x="134" y="525" width="333" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap an event to learn more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-0f-Rl5">
+                                <rect key="frame" x="155" y="525" width="290" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="333" id="BK6-ex-YpC"/>
+                                    <constraint firstAttribute="width" constant="290" id="qGN-q2-RG1"/>
                                     <constraint firstAttribute="height" constant="67" id="vpy-Ty-mWc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BK6-ex-YpC"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="0Un-zN-a5Y"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dma-0f-Rl5" secondAttribute="trailing" constant="113" id="1c4-RZ-vRb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dma-0f-Rl5" secondAttribute="trailing" constant="170" id="1c4-RZ-vRb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oWu-ac-sgy" secondAttribute="bottom" constant="62" id="9yJ-Ml-JPU"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="AXb-Yw-9fj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v4x-2S-wOD" secondAttribute="trailing" constant="150" id="BK9-hv-Glt"/>
                             <constraint firstItem="PP6-62-Fto" firstAttribute="top" secondItem="P4g-7D-x4m" secondAttribute="bottom" constant="10" id="CdJ-t2-8a4"/>
@@ -265,11 +272,14 @@
                             <constraint firstItem="v4x-2S-wOD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NlG-Ov-Dpm"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OOr-z7-oek"/>
                             <constraint firstItem="1e5-9C-NGx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="RWK-ib-4dK"/>
+                            <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="v4x-2S-wOD" secondAttribute="top" id="TzJ-Pt-3C4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dhn-so-gwp" secondAttribute="bottom" constant="8" symbolic="YES" id="WyM-yu-vlo"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="114" id="ZB6-rJ-c9T"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="b9O-xU-hdd"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bzz-9a-Jr3"/>
                             <constraint firstItem="oWu-ac-sgy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="doQ-Xv-alR"/>
                             <constraint firstItem="v4x-2S-wOD" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" id="eJg-Mk-ywZ"/>
+                            <constraint firstItem="oWu-ac-sgy" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="8" symbolic="YES" id="f7P-9t-N78"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="fbl-uy-pAs"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="jaN-i8-EOc"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kss-Ei-taV"/>
@@ -279,6 +289,7 @@
                             <constraint firstItem="dhn-so-gwp" firstAttribute="centerX" secondItem="v4x-2S-wOD" secondAttribute="centerX" id="pJl-e7-o0c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P4g-7D-x4m" secondAttribute="trailing" constant="30" id="qGq-fZ-y7F"/>
                             <constraint firstItem="LAC-AE-OA5" firstAttribute="top" secondItem="1e5-9C-NGx" secondAttribute="bottom" constant="10" id="tiE-j3-bjF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dhn-so-gwp" secondAttribute="bottom" constant="72" id="uJ0-Kp-DJt"/>
                             <constraint firstItem="Dma-0f-Rl5" firstAttribute="top" secondItem="PP6-62-Fto" secondAttribute="bottom" constant="65" id="wxa-sI-gb3"/>
                             <constraint firstItem="P4g-7D-x4m" firstAttribute="top" secondItem="LAC-AE-OA5" secondAttribute="bottom" constant="10" id="xO5-pX-aYh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dma-0f-Rl5" secondAttribute="bottom" constant="8" id="zDY-ks-jZz"/>
@@ -287,13 +298,21 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="mDe-49-9bt"/>
+                                <exclude reference="AXb-Yw-9fj"/>
                                 <exclude reference="Ihd-nq-40b"/>
                                 <exclude reference="b9O-xU-hdd"/>
                                 <exclude reference="bzz-9a-Jr3"/>
                                 <exclude reference="doQ-Xv-alR"/>
+                                <exclude reference="f7P-9t-N78"/>
                                 <exclude reference="BK9-hv-Glt"/>
                                 <exclude reference="NlG-Ov-Dpm"/>
+                                <exclude reference="eJg-Mk-ywZ"/>
                                 <exclude reference="mvN-pg-D1W"/>
+                                <exclude reference="1c4-RZ-vRb"/>
+                                <exclude reference="ZB6-rJ-c9T"/>
+                                <exclude reference="wxa-sI-gb3"/>
+                                <exclude reference="uJ0-Kp-DJt"/>
                             </mask>
                         </variation>
                     </view>
@@ -315,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="359"/>
+            <point key="canvasLocation" x="-54" y="436"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OKH-bj-qDf">
