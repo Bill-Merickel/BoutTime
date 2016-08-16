@@ -189,7 +189,7 @@ class ViewController: UIViewController {
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
-        setOfInventionsInOrder.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
+        setOfInventionsInOrder.append(randomInvention1); setOfInventionsInOrder.append(randomInvention2); setOfInventionsInOrder.append(randomInvention3); setOfInventionsInOrder.append(randomInvention4)
         setOfInventionsInOrder.sortInPlace({$0.invention.year < $1.invention.year})
     }
     
