@@ -18,15 +18,16 @@ class ViewController: UIViewController {
     let roundsPerGame = 6
     var roundsPlayed = 0
     var roundsCorrect = 0
-    var setOfInventions: [RandomInvention] = []
-    var setOfInventionsInOrder: [RandomInvention] = []
+    var setOfInventions: [Invention] = []
+    var setOfInventionsInOrder: [Invention] = []
     var copyOfListOfInventions: [Invention] = []
-    var randomInvention1 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
-    var randomInvention2 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
-    var randomInvention3 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
-    var randomInvention4 = RandomInvention(invention: Invention(event: "", year: 0, url: ""), index: 0)
+    var randomInvention1 = Invention(event: "", year: 0, url: "")
+    var randomInvention2 = Invention(event: "", year: 0, url: "")
+    var randomInvention3 = Invention(event: "", year: 0, url: "")
+    var randomInvention4 = Invention(event: "", year: 0, url: "")
     let successImage = UIImage(named: "next_round_success")
-    let failImage = UIImage(named: "next_round_success")
+    let failImage = UIImage(named: "next_round_fail")
+    var alertHasShown = false
     
     // Timer Mechanics
     var timer = NSTimer()
@@ -67,6 +68,8 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
         
     }
+    
+    // Pre-load game Sounds/Set up UI
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCorrectSound()
@@ -74,6 +77,7 @@ class ViewController: UIViewController {
         setupAppUI()
     }
     
+    // When the view pops up
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         showAlert()
@@ -93,10 +97,12 @@ class ViewController: UIViewController {
         return UIInterfaceOrientationMask.Portrait
     }
     
+    // Hide status bar
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
+    // Enable app for motion detection
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
@@ -110,50 +116,51 @@ class ViewController: UIViewController {
     
     // Buttons to swap events
     @IBAction func View1Down(sender: UIButton) {
-        swapInventions(setOfInventions[0], secondInvention: setOfInventions[1])
+        swapInventions(&setOfInventions[0], secondInvention: &setOfInventions[1])
     }
     @IBAction func View2Up(sender: UIButton) {
-        swapInventions(setOfInventions[1], secondInvention: setOfInventions[0])
+        swapInventions(&setOfInventions[1], secondInvention: &setOfInventions[0])
     }
     @IBAction func View2Down(sender: UIButton) {
-        swapInventions(setOfInventions[1], secondInvention: setOfInventions[2])
+        swapInventions(&setOfInventions[1], secondInvention: &setOfInventions[2])
     }
     @IBAction func View3Up(sender: UIButton) {
-        swapInventions(setOfInventions[2], secondInvention: setOfInventions[1])
+        swapInventions(&setOfInventions[2], secondInvention: &setOfInventions[1])
     }
     @IBAction func View3Down(sender: UIButton) {
-        swapInventions(setOfInventions[2], secondInvention: setOfInventions[3])
+        swapInventions(&setOfInventions[2], secondInvention: &setOfInventions[3])
     }
     @IBAction func View4Up(sender: UIButton) {
-        swapInventions(setOfInventions[3], secondInvention: setOfInventions[2])
+        swapInventions(&setOfInventions[3], secondInvention: &setOfInventions[2])
     }
+    
+    // Next round button
     @IBAction func PlayNextRound(sender: AnyObject) {
+        // Get new list of inventions, reset and start the timer, and display the list of inventions
         breakListOfInventions()
         getListOfInventions()
-        resetTimer()
-        beginTimer()
-        disableURLEvents()
         displaySetOfInventions()
     }
     
+    // When a round is over, click on an invention to pull up a Wikipedia page with SafariViewController
     @IBAction func Invention1URL(sender: UIButton) {
-        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[0].invention.url)!, entersReaderIfAvailable: true)
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[0].url)!, entersReaderIfAvailable: true)
         self.presentViewController(sfViewController, animated: true, completion: nil)
     }
     @IBAction func Invention2URL(sender: UIButton) {
-        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[1].invention.url)!, entersReaderIfAvailable: true)
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[1].url)!, entersReaderIfAvailable: true)
         self.presentViewController(sfViewController, animated: true, completion: nil)
     }
     @IBAction func Invention3URL(sender: UIButton) {
-        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[2].invention.url)!, entersReaderIfAvailable: true)
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[2].url)!, entersReaderIfAvailable: true)
         self.presentViewController(sfViewController, animated: true, completion: nil)
     }
     @IBAction func Invention4URL(sender: UIButton) {
-        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[3].invention.url)!, entersReaderIfAvailable: true)
+        let sfViewController = SFSafariViewController(URL: NSURL(string: setOfInventions[3].url)!, entersReaderIfAvailable: true)
         self.presentViewController(sfViewController, animated: true, completion: nil)
     }
     
-    
+    // Round edges and reset text box in each invention view
     func setupAppUI() {
         View1.layer.cornerRadius = 5
         View2.layer.cornerRadius = 5
@@ -166,59 +173,53 @@ class ViewController: UIViewController {
         InventionListed4.setTitle("", forState: .Normal)
     }
     
+    // Get a random set of inventions
     func getListOfInventions() {
         var randomIndex1: Int
         var randomIndex2: Int
         var randomIndex3: Int
         var randomIndex4: Int
+        
+        // Get a random number, assign the first random invention with the listOfInventions[randomIndex], and prepare an index for the 
         randomIndex1 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention1.invention = listOfInventions[randomIndex1]
+        randomInvention1 = listOfInventions[randomIndex1]
         listOfInventions.removeAtIndex(randomIndex1)
-        randomInvention1.index = 0
         randomIndex2 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention2.invention = listOfInventions[randomIndex2]
-        randomInvention2.index = 1
+        randomInvention2 = listOfInventions[randomIndex2]
         listOfInventions.removeAtIndex(randomIndex2)
         randomIndex3 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention3.invention = listOfInventions[randomIndex3]
-        randomInvention3.index = 2
+        randomInvention3 = listOfInventions[randomIndex3]
         listOfInventions.removeAtIndex(randomIndex3)
         randomIndex4 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
-        randomInvention4.invention = listOfInventions[randomIndex4]
-        randomInvention4.index = 3
+        randomInvention4 = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
         setOfInventionsInOrder.append(randomInvention1); setOfInventionsInOrder.append(randomInvention2); setOfInventionsInOrder.append(randomInvention3); setOfInventionsInOrder.append(randomInvention4)
-        setOfInventionsInOrder.sortInPlace({$0.invention.year < $1.invention.year})
+        setOfInventionsInOrder.sortInPlace({$0.year < $1.year})
+        
+        resetTimer()
+        beginTimer()
+        TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
+        InformationLabel.text = "Shake to Complete"
+        disableURLEvents()
+        hideNextRoundButtons()
     }
     
     func displaySetOfInventions() {
-        TimerLabel.hidden = false
-        TimerLabel.enabled = false
-        TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
-        InformationLabel.text = "\(setOfInventions.count)"
-        InventionListed1.setTitle(setOfInventions[0].invention.event, forState: .Normal)
-        InventionListed2.setTitle(setOfInventions[1].invention.event, forState: .Normal)
-        InventionListed3.setTitle(setOfInventions[2].invention.event, forState: .Normal)
-        InventionListed4.setTitle(setOfInventions[3].invention.event, forState: .Normal)
-        
-        if roundsPlayed == roundsPerGame {
-            gameOver()
-        }
+        InventionListed1.setTitle(setOfInventions[0].event, forState: .Normal)
+        InventionListed2.setTitle(setOfInventions[1].event, forState: .Normal)
+        InventionListed3.setTitle(setOfInventions[2].event, forState: .Normal)
+        InventionListed4.setTitle(setOfInventions[3].event, forState: .Normal)
     }
     
-    func swapInventions(var firstInvention: RandomInvention, var secondInvention: RandomInvention) {
-        let firstInventionIndex = firstInvention.index
-        let secondInventionIndex = secondInvention.index
-        
-        swap(&setOfInventions[firstInventionIndex], &setOfInventions[secondInventionIndex])
-        
-        firstInvention.index = secondInventionIndex
-        secondInvention.index = firstInventionIndex
-        
+    func swapInventions(inout firstInvention: Invention, inout secondInvention: Invention) {
+        let tempFirstInvention = firstInvention
+        firstInvention = secondInvention
+        secondInvention = tempFirstInvention
         displaySetOfInventions()
     }
+
     
     func checkAnswer() {
         timer.invalidate()
@@ -228,15 +229,15 @@ class ViewController: UIViewController {
         TimerLabel.enabled = true
         enableURLEvents()
         
-        if randomInvention1.index == setOfInventionsInOrder[0].index && randomInvention2.index == setOfInventionsInOrder[1].index && randomInvention3.index == setOfInventionsInOrder[2].index && randomInvention4.index == setOfInventionsInOrder[3].index {
+        if setOfInventions[0].event == setOfInventionsInOrder[0].event && setOfInventions[1].event == setOfInventionsInOrder[1].event && setOfInventions[2].event == setOfInventionsInOrder[2].event && setOfInventions[3].event == setOfInventionsInOrder[3].event {
             self.InformationLabel.text = "Tap an event to learn more"
             self.roundsCorrect += 1
             self.playCorrectSound()
-            self.TimerLabel.setImage(successImage, forState: .Normal)
+            self.TimerLabel.setBackgroundImage(successImage, forState: .Normal)
         } else {
             self.InformationLabel.text = "Tap an event to learn more"
             self.playIncorrectSound()
-            self.TimerLabel.setImage(failImage, forState: .Normal)
+            self.TimerLabel.setBackgroundImage(failImage, forState: .Normal)
         }
     }
     
@@ -245,10 +246,13 @@ class ViewController: UIViewController {
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Welcome to Bout Time!", message: "In this game, you are given a list of inventions which you have to sort by the order of the invention, oldest on top. You have 6 rounds.", preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "OK", style: .Default, handler: dismissAlert)
-        alertController.addAction(okAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        if alertHasShown == false {
+            alertHasShown = true
+            let alertController = UIAlertController(title: "Welcome to Bout Time!", message: "In this game, you are given a list of inventions which you have to sort by the order of the invention, oldest on top. You have 6 rounds.", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: dismissAlert)
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     func dismissAlert(sender: UIAlertAction) {
@@ -268,6 +272,12 @@ class ViewController: UIViewController {
         InventionListed2.enabled = false
         InventionListed3.enabled = false
         InventionListed4.enabled = false
+    }
+    
+    func hideNextRoundButtons() {
+        TimerLabel.setImage(nil, forState: .Normal)
+        TimerLabel.hidden = false
+        TimerLabel.enabled = false
     }
     
     func beginTimer() {
@@ -294,8 +304,8 @@ class ViewController: UIViewController {
     }
     
     func resetTimer() {
-        timeLeft = 45
-        counter = 45
+        timeLeft = 60
+        counter = 60
         timerRunning = false
     }
     

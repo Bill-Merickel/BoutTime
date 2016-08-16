@@ -60,8 +60,3 @@ class PlistUnarchiver {
         return listOfInventions
     }
 }
-
-struct RandomInvention {
-    var invention: Invention
-    var index: Int
-}
