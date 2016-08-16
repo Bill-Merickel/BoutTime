@@ -274,6 +274,8 @@ class ViewController: UIViewController {
         InventionListed4.enabled = false
     }
     
+    func enableSwapButtons() {    }
+    
     func hideNextRoundButtons() {
         TimerLabel.setImage(nil, forState: .Normal)
         TimerLabel.hidden = false
@@ -291,15 +293,16 @@ class ViewController: UIViewController {
     
     func updateTimer() {
         timeLeft -= 1
-        TimerLabel.titleLabel?.text = "0:\(timeLeft)"
+        TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
         
         if timeLeft == 0 {
             timer.invalidate()
             checkAnswer()
+            TimerLabel.setTitle("", forState: .Normal)
         }
         
         if timeLeft <= 9 {
-            TimerLabel.titleLabel?.text = "0:0\(timeLeft)"
+            TimerLabel.setTitle("0:0\(timeLeft)", forState: .Normal)zszs
         }
     }
     
