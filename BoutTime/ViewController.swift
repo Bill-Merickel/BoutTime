@@ -181,7 +181,7 @@ class ViewController: UIViewController {
         listOfInventions.removeAtIndex(randomIndex2)
         randomIndex3 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention3.invention = listOfInventions[randomIndex3]
-        randomInvention2.index = 2
+        randomInvention3.index = 2
         listOfInventions.removeAtIndex(randomIndex3)
         randomIndex4 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention4.invention = listOfInventions[randomIndex4]
@@ -216,6 +216,8 @@ class ViewController: UIViewController {
         
         firstInvention.index = secondInventionIndex
         secondInvention.index = firstInventionIndex
+        
+        displaySetOfInventions()
     }
     
     func checkAnswer() {
