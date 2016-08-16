@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B300897B1D6295C000277A8A /* CorrectDing.wav in Resources */ = {isa = PBXBuildFile; fileRef = B300897A1D6295C000277A8A /* CorrectDing.wav */; };
 		B3107C701D5AB88900DE2861 /* BoutTimeAssets in Resources */ = {isa = PBXBuildFile; fileRef = B3107C6F1D5AB88900DE2861 /* BoutTimeAssets */; };
-		B31C85331D500CF500682D6C /* CorrectDing.wav in Resources */ = {isa = PBXBuildFile; fileRef = B31C85321D500CF500682D6C /* CorrectDing.wav */; };
 		B3384C511D4EE38500C50828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3384C501D4EE38500C50828 /* AppDelegate.swift */; };
 		B3384C531D4EE38500C50828 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3384C521D4EE38500C50828 /* ViewController.swift */; };
 		B3384C561D4EE38500C50828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3384C541D4EE38500C50828 /* Main.storyboard */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B300897A1D6295C000277A8A /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = ../CorrectDing.wav; sourceTree = "<group>"; };
 		B3107C6F1D5AB88900DE2861 /* BoutTimeAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BoutTimeAssets; sourceTree = "<group>"; };
-		B31C85321D500CF500682D6C /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = ../../../../CorrectDing.wav; sourceTree = "<group>"; };
 		B3384C4D1D4EE38500C50828 /* BoutTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoutTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3384C501D4EE38500C50828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3384C521D4EE38500C50828 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				B3107C6F1D5AB88900DE2861 /* BoutTimeAssets */,
 				B3384C571D4EE38500C50828 /* Assets.xcassets */,
 				B3384C591D4EE38500C50828 /* LaunchScreen.storyboard */,
-				B31C85321D500CF500682D6C /* CorrectDing.wav */,
+				B300897A1D6295C000277A8A /* CorrectDing.wav */,
 				B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */,
 				B3384C5C1D4EE38500C50828 /* Info.plist */,
 				B3384C621D4EE40500C50828 /* Inventions.plist */,
@@ -142,7 +142,7 @@
 				B3F3426B1D4EFDDE0038498F /* IncorrectBuzz.wav in Resources */,
 				B3384C581D4EE38500C50828 /* Assets.xcassets in Resources */,
 				B3384C561D4EE38500C50828 /* Main.storyboard in Resources */,
-				B31C85331D500CF500682D6C /* CorrectDing.wav in Resources */,
+				B300897B1D6295C000277A8A /* CorrectDing.wav in Resources */,
 				B3384C631D4EE40500C50828 /* Inventions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
