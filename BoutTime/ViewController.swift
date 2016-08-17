@@ -121,9 +121,10 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "GameOverController" {
+        if segue.identifier == "gameOver" {
             if let controller = segue.destinationViewController as? GameOverController {
                 controller.roundsCorrect = self.roundsCorrect
+                controller.roundsPlayed = self.roundsPlayed
             }
         }
     }
@@ -209,7 +210,7 @@ class ViewController: UIViewController {
         randomInvention4 = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
-        if roundsPlayed == 2 {
+        if roundsPlayed == 6 {
             presentGameOverController()
         }
         

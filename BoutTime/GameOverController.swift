@@ -11,6 +11,7 @@ import UIKit
 class GameOverController: UIViewController {
     
     var roundsCorrect = 0
+    var roundsPlayed = 0
     let totalRounds = 6
 
     override func viewDidLoad() {
@@ -32,6 +33,8 @@ class GameOverController: UIViewController {
     
     @IBAction func PlayAgain(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
+        roundsPlayed = 0
+        roundsCorrect = 0
     }
 
     /*
