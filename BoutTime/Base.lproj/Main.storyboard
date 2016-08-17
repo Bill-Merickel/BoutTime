@@ -21,6 +21,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1e5-9C-NGx">
                                 <rect key="frame" x="50" y="18" width="500" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="u24-e5-rgq">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Invention1URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Mo-g3-ESx"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-cb-y8Q">
                                         <rect key="frame" x="464" y="0.0" width="36" height="100"/>
                                         <constraints>
@@ -32,16 +42,6 @@
                                         <state key="focused" image="down_full_selected.png"/>
                                         <connections>
                                             <action selector="View1Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSo-HA-CaO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="u24-e5-rgq">
-                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901845637586" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Invention1URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Mo-g3-ESx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -74,6 +74,15 @@
                                             <action selector="View2Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1JA-N5-NpI"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-I8-M77">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Invention2URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Azp-YC-krV"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwo-9V-cn2">
                                         <rect key="frame" x="464" y="50" width="36" height="50"/>
                                         <constraints>
@@ -86,15 +95,6 @@
                                         <state key="focused" image="down_half_selected.png"/>
                                         <connections>
                                             <action selector="View2Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xS7-FF-Y1Z"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-I8-M77">
-                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
-                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Invention2URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Azp-YC-krV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -130,6 +130,15 @@
                                             <action selector="View3Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ad-Pz-HpO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-UU-qYV">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Invention3URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VRA-FO-bVg"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDo-FY-POg">
                                         <rect key="frame" x="464" y="50" width="36" height="50"/>
                                         <constraints>
@@ -142,15 +151,6 @@
                                         <state key="focused" image="down_half_selected.png"/>
                                         <connections>
                                             <action selector="View3Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pEf-cw-qHZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-UU-qYV">
-                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
-                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Invention3URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VRA-FO-bVg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -178,6 +178,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PP6-62-Fto">
                                 <rect key="frame" x="50" y="348" width="500" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yiR-rl-U0j">
+                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="456" id="Ier-oW-eoB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Invention4URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QSY-nw-boQ"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-bV-cIz">
                                         <rect key="frame" x="464" y="0.0" width="36" height="100"/>
                                         <constraints>
@@ -190,19 +203,6 @@
                                         <state key="focused" image="up_full_selected.png"/>
                                         <connections>
                                             <action selector="View4Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nah-mC-F9O"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yiR-rl-U0j">
-                                        <rect key="frame" x="0.0" y="0.0" width="456" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="456" id="Ier-oW-eoB"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="AntiKythera Mechanism, first star-tracking computer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Invention4URL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QSY-nw-boQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -303,14 +303,89 @@
                         <outlet property="InventionListed4" destination="yiR-rl-U0j" id="aRX-PR-HK2"/>
                         <outlet property="TimerLabel" destination="8a4-1f-MVc" id="ypB-8e-uq3"/>
                         <outlet property="View1" destination="1e5-9C-NGx" id="srJ-Ix-iCX"/>
+                        <outlet property="View1Down" destination="VsX-cb-y8Q" id="O9a-Vm-ION"/>
                         <outlet property="View2" destination="LAC-AE-OA5" id="xKD-58-3nP"/>
+                        <outlet property="View2Down" destination="qwo-9V-cn2" id="Gfz-5F-7uK"/>
+                        <outlet property="View2Up" destination="DjH-DM-nfX" id="VMd-Us-ReM"/>
                         <outlet property="View3" destination="P4g-7D-x4m" id="gL5-Gy-dkc"/>
+                        <outlet property="View3Down" destination="mDo-FY-POg" id="fE5-yp-nBs"/>
+                        <outlet property="View3Up" destination="eCR-ye-f5M" id="kVW-mY-GX1"/>
                         <outlet property="View4" destination="PP6-62-Fto" id="Ymi-0s-l6h"/>
+                        <outlet property="View4Up" destination="DxS-bV-cIz" id="42O-Ye-J3B"/>
+                        <segue destination="011-ux-sv7" kind="presentation" id="1sk-bo-J0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="430"/>
+            <point key="canvasLocation" x="-1160" y="594"/>
+        </scene>
+        <!--Game Over Controller-->
+        <scene sceneID="bID-z1-uOp">
+            <objects>
+                <viewController storyboardIdentifier="gameOver" id="011-ux-sv7" customClass="GameOverController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oWu-AM-ceT"/>
+                        <viewControllerLayoutGuide type="bottom" id="fbF-e5-cQ7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dff-cn-3uM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pG-ad-pNu">
+                                <rect key="frame" x="200" y="385" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="AlA-Ao-ot5"/>
+                                    <constraint firstAttribute="width" constant="200" id="aFx-li-hvJ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="play_again.png"/>
+                                <connections>
+                                    <action selector="PlayAgain:" destination="011-ux-sv7" eventType="touchUpInside" id="jf5-tg-qff"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-mh-53z">
+                                <rect key="frame" x="256" y="249" width="89" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="UdQ-KV-f4J"/>
+                                    <constraint firstAttribute="width" constant="89" id="fqb-dr-gJd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tao-zN-PkR">
+                                <rect key="frame" x="236" y="185" width="128" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="aPM-ls-6NJ"/>
+                                    <constraint firstAttribute="height" constant="56" id="tpg-e9-C6F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.53112217269999995" green="0.87634025469999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.26150901850000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tao-zN-PkR" secondAttribute="trailing" constant="216" id="63F-AM-9ji"/>
+                            <constraint firstItem="iYM-mh-53z" firstAttribute="leading" secondItem="dff-cn-3uM" secondAttribute="leadingMargin" constant="236" id="AXF-on-vi4"/>
+                            <constraint firstItem="fbF-e5-cQ7" firstAttribute="top" secondItem="2pG-ad-pNu" secondAttribute="bottom" constant="155" id="E3P-eY-2w2"/>
+                            <constraint firstItem="Tao-zN-PkR" firstAttribute="centerX" secondItem="dff-cn-3uM" secondAttribute="centerX" id="ONs-xa-i83"/>
+                            <constraint firstItem="Tao-zN-PkR" firstAttribute="top" secondItem="oWu-AM-ceT" secondAttribute="bottom" constant="165" id="SPD-zr-NSu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2pG-ad-pNu" secondAttribute="trailing" constant="180" id="YyS-Tk-FHd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iYM-mh-53z" secondAttribute="trailing" constant="235" id="eb7-r0-ypq"/>
+                            <constraint firstItem="2pG-ad-pNu" firstAttribute="leading" secondItem="dff-cn-3uM" secondAttribute="leadingMargin" constant="180" id="eyn-bH-duh"/>
+                            <constraint firstItem="2pG-ad-pNu" firstAttribute="centerX" secondItem="dff-cn-3uM" secondAttribute="centerX" id="gIj-G4-UvL"/>
+                            <constraint firstItem="iYM-mh-53z" firstAttribute="centerX" secondItem="dff-cn-3uM" secondAttribute="centerX" id="hj2-fY-JHU"/>
+                            <constraint firstItem="Tao-zN-PkR" firstAttribute="leading" secondItem="dff-cn-3uM" secondAttribute="leadingMargin" constant="216" id="pfX-mD-h8g"/>
+                            <constraint firstItem="iYM-mh-53z" firstAttribute="top" secondItem="Tao-zN-PkR" secondAttribute="bottom" constant="8" id="qwA-hY-n32"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameScore" destination="iYM-mh-53z" id="mw8-hS-Uig"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vqD-GX-hf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-281" y="417"/>
         </scene>
     </scenes>
     <resources>
@@ -318,6 +393,7 @@
         <image name="down_full_selected.png" width="158" height="457"/>
         <image name="down_half.png" width="158" height="229"/>
         <image name="down_half_selected.png" width="158" height="229"/>
+        <image name="play_again.png" width="450" height="142"/>
         <image name="up_full.png" width="158" height="457"/>
         <image name="up_full_selected.png" width="158" height="457"/>
         <image name="up_half.png" width="158" height="229"/>

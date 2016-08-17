@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     
     // Game Mechanics
     var listOfInventions: [Invention] = []
-    let roundsPerGame = 6
     var roundsPlayed = 0
     var roundsCorrect = 0
+    let totalRounds = 6
     var setOfInventions: [Invention] = []
     var setOfInventionsInOrder: [Invention] = []
     var copyOfListOfInventions: [Invention] = []
@@ -56,6 +56,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var View4UpSelected: UIImageView!
     @IBOutlet weak var TimerLabel: UIButton!
     @IBOutlet weak var InformationLabel: UILabel!
+    @IBOutlet weak var View1Down: UIButton!
+    @IBOutlet weak var View2Up: UIButton!
+    @IBOutlet weak var View2Down: UIButton!
+    @IBOutlet weak var View3Up: UIButton!
+    @IBOutlet weak var View3Down: UIButton!
+    @IBOutlet weak var View4Up: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -114,6 +120,14 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GameOverController" {
+            if let controller = segue.destinationViewController as? GameOverController {
+                controller.roundsCorrect = self.roundsCorrect
+            }
+        }
+    }
+    
     // Buttons to swap events
     @IBAction func View1Down(sender: UIButton) {
         swapInventions(&setOfInventions[0], secondInvention: &setOfInventions[1])
@@ -140,6 +154,7 @@ class ViewController: UIViewController {
         breakListOfInventions()
         getListOfInventions()
         displaySetOfInventions()
+        self.TimerLabel.setBackgroundImage(nil, forState: .Normal)
     }
     
     // When a round is over, click on an invention to pull up a Wikipedia page with SafariViewController
@@ -194,6 +209,10 @@ class ViewController: UIViewController {
         randomInvention4 = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
+        if roundsPlayed == 2 {
+            presentGameOverController()
+        }
+        
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
         setOfInventionsInOrder.append(randomInvention1); setOfInventionsInOrder.append(randomInvention2); setOfInventionsInOrder.append(randomInvention3); setOfInventionsInOrder.append(randomInvention4)
         setOfInventionsInOrder.sortInPlace({$0.year < $1.year})
@@ -203,6 +222,7 @@ class ViewController: UIViewController {
         TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
         InformationLabel.text = "Shake to Complete"
         disableURLEvents()
+        enableSwapButtons()
         hideNextRoundButtons()
     }
     
@@ -228,6 +248,7 @@ class ViewController: UIViewController {
         roundsPlayed += 1
         TimerLabel.enabled = true
         enableURLEvents()
+        disableSwapButtons()
         
         if setOfInventions[0].event == setOfInventionsInOrder[0].event && setOfInventions[1].event == setOfInventionsInOrder[1].event && setOfInventions[2].event == setOfInventionsInOrder[2].event && setOfInventions[3].event == setOfInventionsInOrder[3].event {
             self.InformationLabel.text = "Tap an event to learn more"
@@ -241,10 +262,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func gameOver() {
-        // MARK: End game
-    }
-    
     func showAlert() {
         if alertHasShown == false {
             alertHasShown = true
@@ -254,6 +271,12 @@ class ViewController: UIViewController {
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    func presentGameOverController() {
+        let GOController = self.storyboard?.instantiateViewControllerWithIdentifier("gameOver") as! GameOverController
+        self.presentViewController(GOController, animated: true, completion: nil)
+    }
+    
     
     func dismissAlert(sender: UIAlertAction) {
         getListOfInventions()
@@ -274,7 +297,23 @@ class ViewController: UIViewController {
         InventionListed4.enabled = false
     }
     
-    func enableSwapButtons() {    }
+    func enableSwapButtons() {
+        View1Down.enabled = true
+        View2Up.enabled = true
+        View2Down.enabled = true
+        View3Up.enabled = true
+        View3Down.enabled = true
+        View4Up.enabled = true
+    }
+    
+    func disableSwapButtons() {
+        View1Down.enabled = false
+        View2Up.enabled = false
+        View2Down.enabled = false
+        View3Up.enabled = false
+        View3Down.enabled = false
+        View4Up.enabled = false
+    }
     
     func hideNextRoundButtons() {
         TimerLabel.setImage(nil, forState: .Normal)
@@ -301,8 +340,8 @@ class ViewController: UIViewController {
             TimerLabel.setTitle("", forState: .Normal)
         }
         
-        if timeLeft <= 9 {
-            TimerLabel.setTitle("0:0\(timeLeft)", forState: .Normal)zszs
+        if timeLeft <= 9 && timeLeft >= 1 {
+            TimerLabel.setTitle("0:0\(timeLeft)", forState: .Normal)
         }
     }
     

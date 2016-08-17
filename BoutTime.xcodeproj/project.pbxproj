@@ -16,6 +16,7 @@
 		B3384C5B1D4EE38500C50828 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3384C591D4EE38500C50828 /* LaunchScreen.storyboard */; };
 		B3384C631D4EE40500C50828 /* Inventions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3384C621D4EE40500C50828 /* Inventions.plist */; };
 		B3384C651D4EE44000C50828 /* InventionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3384C641D4EE44000C50828 /* InventionModel.swift */; };
+		B38AE2A31D63FD9800A5F546 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38AE2A21D63FD9800A5F546 /* GameOverController.swift */; };
 		B3F3426B1D4EFDDE0038498F /* IncorrectBuzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		B3384C5C1D4EE38500C50828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3384C621D4EE40500C50828 /* Inventions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Inventions.plist; sourceTree = "<group>"; };
 		B3384C641D4EE44000C50828 /* InventionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventionModel.swift; sourceTree = "<group>"; };
+		B38AE2A21D63FD9800A5F546 /* GameOverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
 		B3F3426A1D4EFDDE0038498F /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncorrectBuzz.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				B3384C501D4EE38500C50828 /* AppDelegate.swift */,
 				B3384C521D4EE38500C50828 /* ViewController.swift */,
 				B3384C641D4EE44000C50828 /* InventionModel.swift */,
+				B38AE2A21D63FD9800A5F546 /* GameOverController.swift */,
 				B3384C541D4EE38500C50828 /* Main.storyboard */,
 				B3107C6F1D5AB88900DE2861 /* BoutTimeAssets */,
 				B3384C571D4EE38500C50828 /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3384C651D4EE44000C50828 /* InventionModel.swift in Sources */,
+				B38AE2A31D63FD9800A5F546 /* GameOverController.swift in Sources */,
 				B3384C531D4EE38500C50828 /* ViewController.swift in Sources */,
 				B3384C511D4EE38500C50828 /* AppDelegate.swift in Sources */,
 			);
