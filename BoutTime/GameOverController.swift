@@ -13,11 +13,24 @@ class GameOverController: UIViewController {
     var roundsCorrect = 0
     var roundsPlayed = 0
     let totalRounds = 6
-
+    
+    // Hide status bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    // Enable portrait mode only.
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        showScore()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +46,6 @@ class GameOverController: UIViewController {
     
     @IBAction func PlayAgain(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
-        roundsPlayed = 0
-        roundsCorrect = 0
     }
 
     /*

@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     let successImage = UIImage(named: "next_round_success")
     let failImage = UIImage(named: "next_round_fail")
     var alertHasShown = false
+    var newGame = false
     
     // Timer Mechanics
     var timer = NSTimer()
@@ -63,6 +64,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var View3Down: UIButton!
     @IBOutlet weak var View4Up: UIButton!
     
+    // Collect the data from the plist and store it in an array
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("Inventions", ofType: "plist")
@@ -86,12 +88,24 @@ class ViewController: UIViewController {
     // When the view pops up
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        // Show the alert and reset the timer
         showAlert()
+        resetTimer()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Connect the score mechanics between the two segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gameOver" {
+            if let controller = segue.destinationViewController as? GameOverController {
+                controller.roundsCorrect = self.roundsCorrect
+                controller.roundsPlayed = self.roundsPlayed
+            }
+        }
     }
     
     // Enable portrait mode only.
@@ -120,15 +134,6 @@ class ViewController: UIViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gameOver" {
-            if let controller = segue.destinationViewController as? GameOverController {
-                controller.roundsCorrect = self.roundsCorrect
-                controller.roundsPlayed = self.roundsPlayed
-            }
-        }
-    }
-    
     // Buttons to swap events
     @IBAction func View1Down(sender: UIButton) {
         swapInventions(&setOfInventions[0], secondInvention: &setOfInventions[1])
@@ -152,7 +157,7 @@ class ViewController: UIViewController {
     // Next round button
     @IBAction func PlayNextRound(sender: AnyObject) {
         // Get new list of inventions, reset and start the timer, and display the list of inventions
-        breakListOfInventions()
+        breakSetOfInventions()
         getListOfInventions()
         displaySetOfInventions()
         self.TimerLabel.setBackgroundImage(nil, forState: .Normal)
@@ -183,20 +188,20 @@ class ViewController: UIViewController {
         View3.layer.cornerRadius = 5
         View4.layer.cornerRadius = 5
         
-        InventionListed1.setTitle("", forState: .Normal)
-        InventionListed2.setTitle("", forState: .Normal)
-        InventionListed3.setTitle("", forState: .Normal)
-        InventionListed4.setTitle("", forState: .Normal)
+        InventionListed1.setTitle(nil, forState: .Normal)
+        InventionListed2.setTitle(nil, forState: .Normal)
+        InventionListed3.setTitle(nil, forState: .Normal)
+        InventionListed4.setTitle(nil, forState: .Normal)
     }
     
-    // Get a random set of inventions
+    // Get a random set of inventions. This function runs once every round.
     func getListOfInventions() {
         var randomIndex1: Int
         var randomIndex2: Int
         var randomIndex3: Int
         var randomIndex4: Int
         
-        // Get a random number, assign the first random invention with the listOfInventions[randomIndex], and prepare an index for the 
+        // Get a random number, assign the first random invention with the listOfInventions[randomIndex], and repeat the process with every random invention
         randomIndex1 = GKRandomSource.sharedRandom().nextIntWithUpperBound(listOfInventions.count)
         randomInvention1 = listOfInventions[randomIndex1]
         listOfInventions.removeAtIndex(randomIndex1)
@@ -210,14 +215,24 @@ class ViewController: UIViewController {
         randomInvention4 = listOfInventions[randomIndex4]
         listOfInventions.removeAtIndex(randomIndex4)
         
+        // If the game is over...
         if roundsPlayed == 6 {
+            // Show your score in a new controller and reset the game data
             presentGameOverController()
+            roundsPlayed = 0
+            roundsCorrect = 0
+        // Else if the game hasn't started
+        } else if roundsPlayed == 0 {
+            // Refresh the list of inventions
+            listOfInventions = copyOfListOfInventions
         }
         
+        // Create two arrays, one with the inventions and one with the inventions in order.
         setOfInventions.append(randomInvention1); setOfInventions.append(randomInvention2); setOfInventions.append(randomInvention3); setOfInventions.append(randomInvention4)
         setOfInventionsInOrder.append(randomInvention1); setOfInventionsInOrder.append(randomInvention2); setOfInventionsInOrder.append(randomInvention3); setOfInventionsInOrder.append(randomInvention4)
         setOfInventionsInOrder.sortInPlace({$0.year < $1.year})
         
+        // Prepare the round for use
         resetTimer()
         beginTimer()
         TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
@@ -227,6 +242,7 @@ class ViewController: UIViewController {
         hideNextRoundButtons()
     }
     
+    // Show the inventions in the views
     func displaySetOfInventions() {
         InventionListed1.setTitle(setOfInventions[0].event, forState: .Normal)
         InventionListed2.setTitle(setOfInventions[1].event, forState: .Normal)
@@ -234,15 +250,18 @@ class ViewController: UIViewController {
         InventionListed4.setTitle(setOfInventions[3].event, forState: .Normal)
     }
     
+    // Take two inventions and swap their order in the setOfInventions array
     func swapInventions(inout firstInvention: Invention, inout secondInvention: Invention) {
         let tempFirstInvention = firstInvention
         firstInvention = secondInvention
         secondInvention = tempFirstInvention
+        // Update the display
         displaySetOfInventions()
     }
 
-    
+    // Check the answer
     func checkAnswer() {
+        // Set up game for answer viewing
         timer.invalidate()
         TimerLabel.enabled = true
         TimerLabel.setTitle("", forState: .Normal)
@@ -251,18 +270,22 @@ class ViewController: UIViewController {
         enableURLEvents()
         disableSwapButtons()
         
+        // If the order of the inventions in the two arrays are identical (the answer is correct)...
         if setOfInventions[0].event == setOfInventionsInOrder[0].event && setOfInventions[1].event == setOfInventionsInOrder[1].event && setOfInventions[2].event == setOfInventionsInOrder[2].event && setOfInventions[3].event == setOfInventionsInOrder[3].event {
+            // Show the user they got the answer correct
             self.InformationLabel.text = "Tap an event to learn more"
             self.roundsCorrect += 1
             self.playCorrectSound()
             self.TimerLabel.setBackgroundImage(successImage, forState: .Normal)
         } else {
+            // Show the user they got the answer incorrect
             self.InformationLabel.text = "Tap an event to learn more"
             self.playIncorrectSound()
             self.TimerLabel.setBackgroundImage(failImage, forState: .Normal)
         }
     }
     
+    // Create a new alert that gives the player instructions on how to play the game. This function will only be called when the game loads.
     func showAlert() {
         if alertHasShown == false {
             alertHasShown = true
@@ -273,17 +296,20 @@ class ViewController: UIViewController {
         }
     }
     
+    // Show the player their score in a new view controller
     func presentGameOverController() {
-        let GOController = self.storyboard?.instantiateViewControllerWithIdentifier("gameOver") as! GameOverController
-        self.presentViewController(GOController, animated: true, completion: nil)
+        self.performSegueWithIdentifier("gameOver", sender: self)
     }
     
-    
+    // Begin the game when the user taps "OK" on the alert
     func dismissAlert(sender: UIAlertAction) {
         getListOfInventions()
         displaySetOfInventions()
     }
     
+    // MARK: Helper methods
+    
+    // Allow the player to view the inventions in a web browser
     func enableURLEvents() {
         InventionListed1.enabled = true
         InventionListed2.enabled = true
@@ -291,6 +317,7 @@ class ViewController: UIViewController {
         InventionListed4.enabled = true
     }
     
+    // Don't allow the player to view the inventions in a web browser
     func disableURLEvents() {
         InventionListed1.enabled = false
         InventionListed2.enabled = false
@@ -298,6 +325,7 @@ class ViewController: UIViewController {
         InventionListed4.enabled = false
     }
     
+    // Allow the player to swap the inventions
     func enableSwapButtons() {
         View1Down.enabled = true
         View2Up.enabled = true
@@ -307,6 +335,7 @@ class ViewController: UIViewController {
         View4Up.enabled = true
     }
     
+    // Don't allow the player to swap the inventions
     func disableSwapButtons() {
         View1Down.enabled = false
         View2Up.enabled = false
@@ -316,12 +345,14 @@ class ViewController: UIViewController {
         View4Up.enabled = false
     }
     
+    // Show the normal timer
     func hideNextRoundButtons() {
         TimerLabel.setImage(nil, forState: .Normal)
         TimerLabel.hidden = false
         TimerLabel.enabled = false
     }
     
+    // Start the timer
     func beginTimer() {
         if timerRunning == false {
             counter = 60
@@ -331,31 +362,39 @@ class ViewController: UIViewController {
         }
     }
     
+    // Update the timer every second
     func updateTimer() {
         timeLeft -= 1
         TimerLabel.setTitle("0:\(timeLeft)", forState: .Normal)
         
+        // If the timer runs out of time
         if timeLeft == 0 {
+            // Stop the timer and check the answer
             timer.invalidate()
             checkAnswer()
             TimerLabel.setTitle("", forState: .Normal)
         }
         
+        // Make the timer look regular with one digit of time left
         if timeLeft <= 9 && timeLeft >= 1 {
             TimerLabel.setTitle("0:0\(timeLeft)", forState: .Normal)
         }
     }
     
+    // Reset the timer's properties
     func resetTimer() {
         timeLeft = 60
         counter = 60
         timerRunning = false
     }
     
-    func breakListOfInventions() {
+    // Break the set of Inventions
+    func breakSetOfInventions() {
         setOfInventions.removeAll()
         setOfInventionsInOrder.removeAll()
     }
+    
+    // Load both the correct and incorrect sounds for the game. Also create functions to play the sounds.
     
     func loadCorrectSound() {
         let pathToSoundFile = NSBundle.mainBundle().pathForResource("CorrectDing", ofType: "wav")
